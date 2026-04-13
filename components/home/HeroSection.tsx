@@ -14,7 +14,7 @@ export const HeroSection: React.FC = () => {
           Start with Chapter 1 and progress through five comprehensive modules.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/chapters/01-find-qualify" className="inline-block">
+          <a href="/chapters/01-why-matters" className="inline-block">
             <button className="bg-green-600 text-white px-10 py-4 font-display font-bold rounded-lg hover:bg-green-700 transition shadow-md">
               Start Learning
             </button>
