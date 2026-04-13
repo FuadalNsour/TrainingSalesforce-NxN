@@ -14,14 +14,19 @@ export const HeroSection: React.FC = () => {
           Start with Chapter 1 and progress through five comprehensive modules.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/chapters/01-find-qualify">
-            <button className="bg-accent text-black px-8 py-4 font-display font-bold rounded hover:opacity-90 transition">
+          <a href="/chapters/01-find-qualify" className="inline-block">
+            <button className="bg-green-600 text-white px-10 py-4 font-display font-bold rounded-lg hover:bg-green-700 transition shadow-md">
               Start Learning
             </button>
           </a>
-          <a href="/labs">
-            <button className="border-2 border-accent text-accent px-8 py-4 font-display font-bold rounded hover:bg-accent hover:text-black transition">
+          <a href="/labs" className="inline-block">
+            <button className="border-2 border-green-600 text-green-600 px-10 py-4 font-display font-bold rounded-lg hover:bg-green-50 transition">
               View Labs
+            </button>
+          </a>
+          <a href="/lifecycle" className="inline-block">
+            <button className="border-2 border-gray-400 text-gray-700 px-10 py-4 font-display font-bold rounded-lg hover:bg-gray-50 transition">
+              Lifecycle
             </button>
           </a>
         </div>
