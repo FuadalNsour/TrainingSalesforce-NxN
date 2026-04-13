@@ -7,8 +7,8 @@ export default function DemoPage() {
       <div className="max-w-7xl mx-auto px-6 pb-16">
         {/* Hero */}
         <section className="mb-16">
-          <h1 className="text-5xl font-display font-bold mb-4">Interactive Demo Mode</h1>
-          <p className="text-lg text-secondary max-w-2xl mb-8">
+          <h1 className="text-5xl font-display font-bold mb-4 text-gray-900">Interactive Demo Mode</h1>
+          <p className="text-lg text-gray-600 max-w-2xl mb-8">
             Experience a guided walkthrough of the NxN Salesforce commercial process with real-world examples and interactive elements.
           </p>
           <Button variant="primary" size="lg">Start Demo</Button>
@@ -16,7 +16,7 @@ export default function DemoPage() {
 
         {/* Demo Scenarios */}
         <section className="mb-16">
-          <h2 className="text-3xl font-display font-bold mb-8">Demo Scenarios</h2>
+          <h2 className="text-3xl font-display font-bold mb-8 text-gray-900">Demo Scenarios</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
@@ -56,14 +56,14 @@ export default function DemoPage() {
                 complexity: 'Beginner'
               },
             ].map((scenario, idx) => (
-              <div key={idx} className="bg-surface border border-gray-700 rounded-lg p-6 hover:border-accent transition-colors">
-                <h3 className="text-lg font-display font-bold mb-3">{scenario.title}</h3>
-                <p className="text-secondary text-sm mb-4">{scenario.description}</p>
+              <div key={idx} className="bg-white border border-gray-200 rounded-lg p-6 hover:border-accent transition-colors">
+                <h3 className="text-lg font-display font-bold mb-3 text-gray-900">{scenario.title}</h3>
+                <p className="text-gray-600 text-sm mb-4">{scenario.description}</p>
                 <div className="flex items-center gap-2 mb-4">
                   <Badge type="status">{scenario.duration}</Badge>
                   <Badge type="status">{scenario.complexity}</Badge>
                 </div>
-                <button className="text-accent hover:text-white transition-colors font-semibold text-sm">
+                <button className="text-accent hover:text-accent/80 transition-colors font-semibold text-sm">
                   Watch Demo →
                 </button>
               </div>
@@ -72,12 +72,12 @@ export default function DemoPage() {
         </section>
 
         {/* Key Features */}
-        <section className="mb-16 pt-16 border-t border-gray-700">
-          <h2 className="text-3xl font-display font-bold mb-8">Demo Features</h2>
+        <section className="mb-16 pt-16 border-t border-gray-200">
+          <h2 className="text-3xl font-display font-bold mb-8 text-gray-900">Demo Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-xl font-display font-bold text-accent mb-3">Interactive Elements</h3>
-              <ul className="space-y-2 text-secondary">
+              <ul className="space-y-2 text-gray-600">
                 <li>✓ Clickable decision points in conversations</li>
                 <li>✓ Real-time scenario outcomes based on your choices</li>
                 <li>✓ Detailed explanations of why certain approaches work</li>
@@ -86,7 +86,7 @@ export default function DemoPage() {
             </div>
             <div>
               <h3 className="text-xl font-display font-bold text-accent mb-3">Learning Tools</h3>
-              <ul className="space-y-2 text-secondary">
+              <ul className="space-y-2 text-gray-600">
                 <li>✓ Replay scenarios with different choices</li>
                 <li>✓ Comparison of successful vs unsuccessful approaches</li>
                 <li>✓ Access to underlying frameworks and methodologies</li>
@@ -97,9 +97,9 @@ export default function DemoPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-gradient-to-r from-accent/10 to-transparent border border-accent/30 rounded-lg p-12 text-center">
-          <h2 className="text-3xl font-display font-bold mb-4">Ready to Learn?</h2>
-          <p className="text-secondary mb-8 max-w-xl mx-auto">
+        <section className="bg-gradient-to-r from-accent/5 to-transparent border border-accent/20 rounded-lg p-12 text-center">
+          <h2 className="text-3xl font-display font-bold mb-4 text-gray-900">Ready to Learn?</h2>
+          <p className="text-gray-600 mb-8 max-w-xl mx-auto">
             Get interactive, scenario-based training that helps you understand not just what to do, but why it matters.
           </p>
           <Button variant="primary" size="lg">Explore All Demos</Button>
