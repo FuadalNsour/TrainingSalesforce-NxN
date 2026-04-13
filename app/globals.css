@@ -2,11 +2,17 @@
 
 @layer base {
   body {
-    @apply bg-white text-[#1F2937];
+    background-color: white;
+    color: var(--color-primary, #1F2937);
   }
 
   a {
-    @apply text-[#10B981] hover:text-[#059669] transition-colors;
+    color: var(--color-accent, #10B981);
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: var(--color-accent-dark, #059669);
   }
 
   h1, h2, h3, h4, h5, h6 {
