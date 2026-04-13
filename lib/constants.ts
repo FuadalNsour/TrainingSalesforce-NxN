@@ -1,15 +1,17 @@
 // lib/constants.ts
 export const COLORS = {
-  black: '#000000',
   white: '#FFFFFF',
+  black: '#000000',
   gray: {
+    50: '#F9FAFB',
+    100: '#F3F4F6',
     300: '#D1D5DB',
-    700: '#374151',
+    600: '#4B5563',
     900: '#1F2937',
   },
   green: {
-    600: '#10B981',
-    500: '#14B8A6',
+    500: '#10B981',
+    600: '#059669',
   },
 };
 
@@ -38,10 +40,9 @@ export const SPACING = {
 
 export const ROUTES = {
   home: '/',
-  dashboard: '/dashboard',
   chapter: (id: string) => `/chapters/${id}`,
   lifecycle: '/lifecycle',
   labs: '/labs',
-  demo: '/demo',
+  lab: (id: string) => `/labs/${id}`,
   trainer: '/trainer',
 };

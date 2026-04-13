@@ -1,36 +1,15 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-html {
-  background-color: #000000;
-  color: #FFFFFF;
-}
+@layer base {
+  body {
+    @apply bg-white text-[#1F2937];
+  }
 
-body {
-  background-color: #000000;
-  color: #FFFFFF;
-  font-family: 'Cairo', sans-serif;
-}
+  a {
+    @apply text-[#10B981] hover:text-[#059669] transition-colors;
+  }
 
-h1, h2, h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: bold;
-}
-
-a {
-  color: #10B981;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: #14B8A6;
-}
-
-/* Motion line accent (5-step gradient effect) */
-.motion-accent {
-  background: linear-gradient(
-    90deg,
-    #10B981 0%,
-    #000000 50%,
-    #10B981 100%
-  );
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
 }

@@ -8,9 +8,9 @@ export const CTAButtons: React.FC = () => {
   return (
     <section className="bg-surface border-y border-gray-700 py-12">
       <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row gap-4 justify-center">
-        <Link href={ROUTES.dashboard}>
+        <Link href={ROUTES.home}>
           <Button variant="primary" size="lg">
-            Go to Dashboard
+            Go to Home
           </Button>
         </Link>
         <Link href={ROUTES.chapter('01-find-qualify')}>

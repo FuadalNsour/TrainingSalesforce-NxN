@@ -15,9 +15,6 @@ const Navigation: React.FC = () => {
 
         {/* Navigation Links */}
         <div className="flex items-center gap-6">
-          <Link href={ROUTES.dashboard} className="text-secondary hover:text-accent transition-colors">
-            Dashboard
-          </Link>
           <Link href={ROUTES.lifecycle} className="text-secondary hover:text-accent transition-colors">
             Lifecycle
           </Link>
