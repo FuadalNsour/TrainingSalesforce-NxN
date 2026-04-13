@@ -7,7 +7,14 @@
   }
 
   a {
-    @apply text-green-600 hover:text-green-700 transition-colors;
+    color: #16a34a;
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  a:hover {
+    color: #15803d;
   }
 
   h1, h2, h3, h4, h5, h6 {
