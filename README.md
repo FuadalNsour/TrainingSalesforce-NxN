@@ -46,7 +46,6 @@ Chapter content is defined in `data/chapters/*.json`. Edit these files to update
 ## Available Routes
 
 - `/` - Landing page
-- `/dashboard` - Learning dashboard with progress
 - `/chapters/[chapterId]` - Individual chapter pages
 - `/lifecycle` - Interactive lifecycle viewer
 - `/labs` - Lab scenarios (coming soon)
