@@ -12,7 +12,12 @@ export const ChapterPreviewCard: React.FC<ChapterPreviewCardProps> = ({ chapter 
   return (
     <Link href={ROUTES.chapter(chapter.id)}>
       <Card hoverable className="h-full flex flex-col bg-white border border-gray-200">
-        <p className="text-sm text-accent font-bold mb-2">Chapter {chapter.order}</p>
+        <div className="flex justify-between items-start mb-2">
+          <p className="text-sm text-accent font-bold">Chapter {chapter.order}</p>
+          {chapter.duration && (
+            <p className="text-sm text-gray-500">{chapter.duration} min</p>
+          )}
+        </div>
         <h3 className="text-xl font-display font-bold mb-3 text-gray-900">{chapter.title}</h3>
         <p className="text-gray-600 mb-4 flex-1">
           Learn key concepts and processes in this chapter of the NxN Salesforce methodology.

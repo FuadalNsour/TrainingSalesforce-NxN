@@ -1,7 +1,7 @@
 {
   "title": "NxN Salesforce Commercial Process Training",
   "description": "Learn the complete NxN Salesforce commercial customer lifecycle and process discipline",
-  "duration": 180,
+  "duration": 380,
   "audience": ["sales", "account-manager", "crm", "leadership"],
   "version": "1.0",
   "lastUpdated": "2026-04-13",
@@ -9,27 +9,86 @@
     {
       "id": "01-find-qualify",
       "title": "Find and Qualify the Right Customer",
-      "order": 1
+      "order": 1,
+      "duration": 20
     },
     {
       "id": "02-build-structure",
       "title": "Build the Right Customer Structure",
-      "order": 2
+      "order": 2,
+      "duration": 25
     },
     {
       "id": "03-sell-controlled",
       "title": "Sell in a Controlled Way",
-      "order": 3
+      "order": 3,
+      "duration": 15
     },
     {
       "id": "04-leadership",
       "title": "Leadership Visibility",
-      "order": 4
+      "order": 4,
+      "duration": 35
     },
     {
       "id": "05-full-cycle",
       "title": "Full-Cycle Demo and Lab",
-      "order": 5
+      "order": 5,
+      "duration": 30
+    },
+    {
+      "id": "06-engagement",
+      "title": "Engagement Strategy",
+      "order": 6,
+      "duration": 25
+    },
+    {
+      "id": "07-account-planning",
+      "title": "Account Planning",
+      "order": 7,
+      "duration": 35
+    },
+    {
+      "id": "08-stakeholder-analysis",
+      "title": "Stakeholder Analysis",
+      "order": 8,
+      "duration": 20
+    },
+    {
+      "id": "09-deal-management",
+      "title": "Deal Management",
+      "order": 9,
+      "duration": 20
+    },
+    {
+      "id": "10-forecasting",
+      "title": "Forecasting and Analytics",
+      "order": 10,
+      "duration": 25
+    },
+    {
+      "id": "11-pipeline-management",
+      "title": "Pipeline Management",
+      "order": 11,
+      "duration": 30
+    },
+    {
+      "id": "12-customer-success",
+      "title": "Customer Success Handoff",
+      "order": 12,
+      "duration": 20
+    },
+    {
+      "id": "13-compliance-governance",
+      "title": "Compliance and Governance",
+      "order": 13,
+      "duration": 40
+    },
+    {
+      "id": "14-advanced-techniques",
+      "title": "Advanced Techniques and Best Practices",
+      "order": 14,
+      "duration": 25
     }
   ]
 }

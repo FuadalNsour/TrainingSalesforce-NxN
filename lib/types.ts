@@ -80,6 +80,7 @@ export interface ChapterReference {
   id: string;
   title: string;
   order: number;
+  duration?: number; // in minutes
 }
 
 export interface CourseMetadata {
