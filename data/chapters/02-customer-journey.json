@@ -9,9 +9,56 @@
       "id": "section-full-journey",
       "type": "narrative",
       "order": 0,
-      "title": "The Full Customer Journey",
-      "content": "Every customer at NxN follows the same fundamental journey through our commercial system, regardless of deal size, geography, or vertical market. Understanding this end-to-end lifecycle is critical because each stage requires different activities, different people, and different systems interactions. Here's the complete flow:\n\n**Lead Intake**: The journey begins when a prospect is identified from an approved source. This might be an inbound inquiry, a referral, a partner-led introduction, or a prospecting list. The prospect enters Salesforce as a Lead record, capturing basic information about the company and the contact person.\n\n**Verification**: Once a lead is created, it enters the verification phase. During this stage, the team confirms that the company exists, that the contact person is real and has the authority to engage, and that there is a legitimate business need. Verification is not qualification—it's basic due diligence to ensure we're pursuing real opportunities.\n\n**Qualification**: After verification, the lead is qualified. Qualification means the team has confirmed that the prospect's need matches NxN's solution, that they have a budget or funding, and that there's a defined timeframe for a decision. A qualified lead meets our criteria for moving forward into a sales opportunity.\n\n**Conversion**: When a lead is qualified, it converts into the account hierarchy. This is a critical step because the conversion logic determines whether the prospect represents a net-new customer, a new division within an existing customer, or a partner-managed account. The conversion creates the foundational account, subsidiary accounts, and contact records that will be used for the entire lifecycle of the customer relationship.\n\n**Account and Contact Setup**: Following conversion, the account and contact records are confirmed and enriched. Account data includes company information, billing address, shipping address, industry, and account classification. Contact records are created for each stakeholder involved in the deal, capturing roles, decision authority, and relationship history.\n\n**Opportunity Progression**: With the account structure in place, the sales team creates an opportunity on the correct account (specifically, the Entity Child Account that will deliver the service). The opportunity then progresses through defined stages: Qualification, Solution Definition, Pricing & Quotation, Customer Review, Contracting, and finally Closed Won or Closed Lost.\n\n**Quote**: During the Pricing & Quotation stage, the sales team prepares a quote that documents the proposed products, services, quantities, pricing, terms, and commercial conditions. The quote is reviewed internally for approval and then sent to the customer for review and acceptance.\n\n**Contract**: As the deal moves toward closure, the legal and contracting team creates a contract or purchase agreement that documents the binding terms, conditions, warranty, support, pricing, and other commercial obligations. The contract is executed by authorized signatories on both sides.\n\n**Closed Won / Closed Lost**: The opportunity is closed as Won (if the customer has signed or provided acceptance evidence) or Lost (if the customer selected a competitor, decided not to proceed, or if the deal stalls beyond recovery). Closed Won deals move into customer lifecycle management. Closed Lost deals are analyzed for win/loss patterns.\n\n**Active Customer Lifecycle**: Once a deal is Closed Won and the customer has gone live or begun consuming services, the account enters the Active lifecycle stage. During this phase, account managers own the customer relationship, monitor usage and satisfaction, manage renewals, and identify expansion opportunities. The account remains Active as long as the customer continues to have an active commercial relationship with NxN.\n\n**Dormant and Blocked Stages**: If an account's active commitment ends (perhaps due to a contract non-renewal or service discontinuation), the account moves to Dormant status, where it may be monitored for reactivation opportunities. If an account has a billing issue, legal issue, or compliance problem that prevents normal business, it moves to Blocked status until the issue is resolved.\n\nThis journey is managed in Salesforce through a combination of Lead, Account, Contact, Opportunity, Quote, and Contract objects, each with specific fields, stages, and governance rules. Understanding how each stage flows into the next, and what must be accomplished at each stage, is the foundation of using Salesforce effectively at NxN."
+      "title": "The Journey at a Glance",
+      "content": "Every customer at NxN follows the same fundamental path. The journey is identical regardless of deal size, geography, or vertical market. Each stage has distinct activities, different people involved, and specific systems interactions.\n\nLet's walk through it together."
+    },
+    {
+      "id": "section-prospect-to-lead",
+      "type": "narrative",
+      "order": 1,
+      "title": "From Prospect to Lead",
+      "content": "Lead Intake: A prospect is identified from an approved source—an inbound inquiry, referral, partner introduction, or prospecting list. They enter Salesforce as a Lead record with basic company and contact information.\n\nVerification: The team confirms three things: the company exists, the contact is real and has authority to engage, and there's a legitimate business need. This is due diligence, not qualification—we're verifying we're pursuing real opportunities.\n\nQualification: The team now validates the match: Does the prospect's need fit our solution? Do they have budget? Is there a decision timeline? A qualified lead meets our criteria to move into a sales opportunity."
+    },
+    {
+      "id": "section-lead-to-opportunity",
+      "type": "narrative",
+      "order": 2,
+      "title": "Converting to an Opportunity",
+      "content": "Conversion: This is critical. When a lead qualifies, it converts into the account hierarchy. The conversion logic determines whether this is a net-new customer, a new division within an existing account, or a partner-managed deal. Conversion creates the foundational account, subsidiary accounts, and contact records for the entire customer lifecycle.\n\nAccount & Contact Setup: After conversion, the account and contact records are confirmed and enriched. Account data includes company info, billing/shipping addresses, industry, and classification. Contact records capture roles, decision authority, and relationship history for every stakeholder involved."
+    },
+    {
+      "id": "section-opportunity-progression",
+      "type": "narrative",
+      "order": 3,
+      "title": "Moving Through the Deal",
+      "content": "With the account structure in place, the sales team creates an opportunity on the correct account (the Entity Child Account that will deliver the service). The opportunity moves through defined stages:\n\n1. Qualification — Confirming fit and readiness\n2. Solution Definition — Understanding and designing the customer solution\n3. Pricing & Quotation — Preparing a detailed quote\n4. Customer Review — Customer evaluation and feedback\n5. Contracting — Legal review and terms finalization\n6. Closed Won / Closed Lost — Deal closure\n\nEach stage requires specific activities and gate criteria before advancing."
+    },
+    {
+      "id": "section-quote-contract",
+      "type": "narrative",
+      "order": 4,
+      "title": "Documentation & Approval",
+      "content": "Quote: During Pricing & Quotation, the sales team creates a quote documenting products, services, quantities, pricing, terms, and commercial conditions. Internal approval is required before sending to the customer.\n\nContract: As closure approaches, legal and contracting teams create a purchase agreement with binding terms, conditions, warranty, support, pricing, and obligations. Authorized signatories on both sides execute the contract."
+    },
+    {
+      "id": "section-closure-onward",
+      "type": "narrative",
+      "order": 5,
+      "title": "From Closure to Customer",
+      "content": "Closed Won / Closed Lost: The opportunity closes as Won (customer signed or provided acceptance) or Lost (competitor selected, customer deferred, or deal stalled). Won deals move to customer lifecycle management. Lost deals are analyzed for win/loss patterns.\n\nActive Customer Lifecycle: After Closed Won, the account enters Active status. Account managers own the relationship, monitor usage and satisfaction, manage renewals, and identify expansion opportunities. The account stays Active as long as the commercial relationship continues.\n\nDormant & Blocked: If an active commitment ends (non-renewal or service discontinuation), the account moves to Dormant—monitored for reactivation. If a billing, legal, or compliance issue blocks normal business, the account moves to Blocked until resolved."
+    },
+    {
+      "id": "section-the-system",
+      "type": "narrative",
+      "order": 6,
+      "title": "How It Works in Salesforce",
+      "content": "This entire journey lives in Salesforce through Lead, Account, Contact, Opportunity, Quote, and Contract objects. Each has specific fields, stages, and governance rules.\n\nUnderstanding how each stage connects and what must be completed at each step is the foundation of using Salesforce effectively at NxN."
     }
+  ],
+  "keyTakeaways": [
+    "Lead Intake through Closed Won follows a defined sequence with distinct stages for verification, qualification, and conversion",
+    "Account hierarchy (Parent and Entity Child) must be established correctly during conversion to ensure proper revenue attribution",
+    "Each stage requires specific activities and completion before moving forward"
   ],
   "nextChapterId": "03-roles"
 }

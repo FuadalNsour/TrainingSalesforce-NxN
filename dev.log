@@ -2,17 +2,16 @@
 > nxn-training-portal@0.1.0 dev
 > next dev
 
-⚠ Port 3000 is in use by process 24364, using available port 3001 instead.
 ▲ Next.js 16.2.3 (Turbopack)
-- Local:         http://localhost:3001
-- Network:       http://192.168.161.28:3001
-✓ Ready in 509ms
-⨯ Another next dev server is already running.
+- Local:         http://localhost:3002
+- Network:       http://192.168.161.28:3002
+✓ Ready in 606ms
 
-- Local:        http://localhost:3000
-- PID:          24364
-- Dir:          C:\Users\fuad.alnsour\OneDrive\Claude Code\Planning\nxn-training-portal
-- Log:          .next\dev\logs\next-development.log
-
-Run taskkill /PID 24364 /F to stop it.
-[?25h
+ GET / 200 in 2.9s (next.js: 2.5s, application-code: 394ms)
+[browser] Image with src "http://localhost:3002/logos/7x_Logo_Black_RGB.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. (file://C:/Users/fuad.alnsour/OneDrive/Claude Code/Planning/nxn-training-portal/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] Image with src "http://localhost:3002/logos/NXN_Lockup_NXN_Logo_Blue_RGB.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. (file://C:/Users/fuad.alnsour/OneDrive/Claude Code/Planning/nxn-training-portal/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+ GET /chapters/02-customer-journey 200 in 1061ms (next.js: 977ms, application-code: 84ms)
+ GET /labs/lab-02-01 200 in 1042ms (next.js: 1002ms, application-code: 40ms)
+ GET /labs 200 in 468ms (next.js: 418ms, application-code: 50ms)
+ GET / 200 in 63ms (next.js: 5ms, application-code: 58ms)
+ GET /chapters/04-lead-management 200 in 89ms (next.js: 23ms, application-code: 67ms)

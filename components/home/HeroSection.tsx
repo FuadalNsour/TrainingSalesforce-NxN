@@ -1,11 +1,11 @@
+
 import Image from 'next/image';
-import { MotionAccent } from '@/components/common/MotionAccent';
 
 export const HeroSection: React.FC = () => {
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <Image src="/logos/nxn-green.svg" alt="NxN" width={80} height={80} className="mx-auto mb-6" />
+        <Image src="/logos/NXN_Lockup_NXN_Logo_Blue_RGB.svg" alt="NxN" width={120} height={80} className="mx-auto mb-6" />
         <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-gray-900">
           Master NxN Sales Framework
         </h1>

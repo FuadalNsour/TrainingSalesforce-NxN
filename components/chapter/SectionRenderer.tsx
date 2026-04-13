@@ -15,15 +15,15 @@ export const SectionRenderer: React.FC<SectionRendererProps> = ({ section }) => 
     case 'hero':
       return (
         <div className="text-center py-8">
-          {section.title && <h2 className="text-3xl font-display font-bold mb-2">{section.title}</h2>}
+          {section.title && <h2 className="text-3xl font-display font-bold mb-2 text-gray-900">{section.title}</h2>}
         </div>
       );
 
     case 'narrative':
       return (
-        <div className="prose prose-invert max-w-none">
-          {section.title && <h2 className="text-2xl font-display font-bold mb-4">{section.title}</h2>}
-          <p className="text-secondary text-lg leading-relaxed">
+        <div className="max-w-none">
+          {section.title && <h2 className="text-2xl font-display font-bold mb-4 text-gray-900">{section.title}</h2>}
+          <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-wrap">
             {typeof section.content === 'string'
               ? section.content
               : (section.content as any).text}

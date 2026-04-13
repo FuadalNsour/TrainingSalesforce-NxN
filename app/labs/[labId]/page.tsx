@@ -79,9 +79,12 @@ export default function LabDetailPage() {
         <>
           <LabFeedback
             correctAnswer={lab.correctAnswer}
+            bestAnswer={lab.bestAnswer}
             explanation={lab.explanation}
             keyLearnings={lab.keyLearnings}
             userAnswer={userAnswer}
+            assessmentType={lab.assessmentType}
+            scoringRubric={lab.scoringRubric}
           />
 
           <div className="mt-8 flex gap-4">

@@ -6,12 +6,94 @@
   "duration": 35,
   "sections": [
     {
-      "id": "section-opportunity-management",
+      "id": "section-what-is-opportunity",
       "type": "narrative",
       "order": 0,
-      "title": "Opportunity Management",
-      "content": "An Opportunity in Salesforce represents a potential sale or commercial deal. Once a qualified lead converts into the account hierarchy, an opportunity is created to track the sales process from initial engagement through contract closure. The Opportunity is where sales activity, deal progression, and revenue forecasting occur.\n\n**Core Opportunity Principle**: All sales activity must occur on the servicing Entity Child Account only. This is a critical rule. When you have a complex hierarchy with a Parent Account and multiple Entity Child Accounts, the Opportunity must be created on the Entity Child Account that will actually deliver or consume the service, not on the Parent Account. This ensures that revenue is attributed correctly and that reporting accurately reflects which division or business unit is driving each deal. If an opportunity is mistakenly created on a Parent Account, it must be moved to the correct Entity Child Account.\n\n**Opportunity Stages**:\n\nOpportunities progress through seven defined stages, each representing a distinct phase of the sales process:\n\n**1. Qualification**\nThe Qualification stage is the entry point for a new opportunity. At this stage, the sales team has identified a potential customer and has confirmed (through the lead process) that the opportunity represents a valid need, defined budget or funding, and a realistic timeframe. The opportunity is created with basic information: company, contact, opportunity name, and initial estimated close date. Activities at this stage include initial discovery conversations, understanding the customer's current state and business objectives, and identifying the potential scope of the engagement.\n\n**2. Solution Definition**\nAs the sales team progresses deeper into the engagement, they move the opportunity to Solution Definition. At this stage, the team is conducting detailed discovery, understanding the customer's technical requirements, business processes, and success metrics. The team may prepare a proposed solution architecture, technical scope, or high-level approach. Multiple stakeholders from both NxN and the customer are typically engaged. Activities include technical discovery calls, whiteboarding sessions, preliminary proposal drafts, and internal alignment on the proposed solution.\n\n**3. Pricing & Quotation**\nOnce the solution is roughly defined, the opportunity moves to Pricing & Quotation. At this stage, the sales team is preparing detailed pricing, defining the commercial scope (products, services, quantities, service level agreements), and preparing a formal quote or proposal for the customer. The sales team works with product specialists, account managers, and pricing approvers to ensure that the quote is complete, accurate, and approved before it's sent to the customer.\n\n**4. Customer Review**\nAfter the quote is sent to the customer, the opportunity moves to Customer Review. At this stage, the customer is evaluating the proposal, may be asking questions, requesting modifications, or comparing against competing proposals. The sales team remains engaged, answering questions, providing clarifications, and addressing any concerns the customer raises. Internal negotiations on pricing, terms, or scope may occur during this stage.\n\n**5. Contracting**\nOnce the customer has accepted the general terms of the proposal and the pricing, the opportunity moves to Contracting. At this stage, the legal and contracting teams take the lead, preparing a formal contract or purchase agreement that documents all terms and conditions. The contract is reviewed and approved internally, then sent to the customer for review and execution. Multiple rounds of revision and negotiation may occur. Activities include contract drafting, internal approvals, customer negotiations, and execution.\n\n**6. Closed - Won**\nWhen the contract is signed by authorized representatives from both NxN and the customer (or when acceptance evidence has been obtained), the opportunity is closed as Won. The Closed - Won stage signals that the deal is complete, the customer has committed, and the account transitions into onboarding and active management. Revenue can be recognized at this point. The reason for winning (e.g., \"customer selected for solution fit,\" \"best pricing,\" \"proof of concept successful\") is documented in the opportunity for win/loss analysis.\n\n**7. Closed - Lost**\nIf the customer selects a competitor, decides not to pursue the project, decides not to proceed with NxN, or if the deal stalls beyond a reasonable recovery point, the opportunity is closed as Lost. The reason for the loss (e.g., \"competitor selected,\" \"budget cut,\" \"solution misfit,\" \"business case not approved\") is documented for win/loss analysis. Closed - Lost deals are reviewed by leadership to identify patterns and improvement opportunities.\n\n**Opportunity Naming and Tracking**:\n\nEach opportunity should have a clear, descriptive name that identifies the customer, the scope of the deal, and the intended value. A good opportunity name is something like \"Acme Corp - Financial Services Platform - $500K\" rather than \"Acme Corp - New Deal.\"\n\n**Key Fields and Metadata**:\n\nWhen creating and managing opportunities, the following fields are essential:\n\n- **Opportunity Name**: Clear, descriptive name.\n- **Account**: The Entity Child Account (NOT the Parent Account).\n- **Close Date**: The expected date the deal will be closed (updated as the deal progresses).\n- **Stage**: The current stage of the sales process.\n- **Amount**: The expected contract value.\n- **Probability**: The likelihood of closing, typically aligned with the stage (e.g., Qualification = 20%, Customer Review = 70%, Contracting = 90%).\n- **Primary Contact**: The lead customer stakeholder.\n- **Next Steps**: The specific action that needs to occur to move the deal forward.\n- **Products/Services**: What NxN is proposing to sell.\n- **Description**: Context about the opportunity, the customer's needs, and the proposed solution.\n\n**Opportunity Discipline**:\n\nTo keep opportunities accurate and useful for forecasting and reporting:\n\n- Each Opportunity should represent one discrete commercial engagement or deal.\n- Do not combine multiple deals or phases into a single opportunity; create separate opportunities for expansions, renewals, or different products.\n- Do not create an opportunity until there is genuine customer interest and engagement; avoid speculative opportunities.\n- Update the Stage, Close Date, and probability regularly as the deal progresses.\n- Document Next Steps and required activities clearly.\n- When a deal is lost, analyze the reason and ensure it's documented.\n- When a deal is won, prepare the account for onboarding and transition to account management.\n\nUnderstanding opportunity management is critical because opportunities are the foundation of sales forecasting, pipeline reporting, and revenue recognition. Clean, accurate opportunities enable leadership to understand the true health of the business and guide strategic decisions."
+      "title": "What Is an Opportunity?",
+      "content": "An Opportunity represents a potential sale or commercial deal in Salesforce. It's the hub where qualified leads become tracked pipelines—from first conversation through contract closure.\n\nOpportunities are your window into deal progression, sales velocity, and revenue forecasting. They're the single source of truth for every active deal."
+    },
+    {
+      "id": "section-the-golden-rule",
+      "type": "narrative",
+      "order": 1,
+      "title": "The Golden Rule: Entity Child Account Only",
+      "content": "All sales activity must occur on the Entity Child Account that will deliver or consume the service—never on the Parent Account.\n\nThis is non-negotiable. In complex hierarchies with Parent and Entity Child Accounts, always create opportunities on the business unit that owns the delivery. This keeps revenue attribution accurate and reporting transparent. If an opportunity lands on the wrong account, move it immediately."
+    },
+    {
+      "id": "section-seven-stages",
+      "type": "narrative",
+      "order": 2,
+      "title": "The Seven Stages",
+      "content": "Opportunities flow through seven distinct stages. Each marks a clear shift in the deal's journey.\n\n1. Qualification\nEntry point for new deals. You've identified a prospect, confirmed real need, and validated budget and timeline. Record basic details: company, contact, deal name, expected close date."
+    },
+    {
+      "id": "section-stage-two",
+      "type": "narrative",
+      "order": 3,
+      "title": "",
+      "content": "2. Solution Definition\nDeep discovery phase. You're mapping their technical requirements, business processes, and success metrics. You're building a proposed architecture. Multiple stakeholders are engaged—technical discovery calls, whiteboarding sessions, draft proposals. Internal alignment matters here."
+    },
+    {
+      "id": "section-stage-three",
+      "type": "narrative",
+      "order": 4,
+      "title": "",
+      "content": "3. Pricing & Quotation\nSolution is clear; now you price it. You're defining commercial scope—products, services, quantities, SLAs—and preparing formal quotes. Work with product specialists and pricing approvers. Get approval before the customer sees it."
+    },
+    {
+      "id": "section-stage-four",
+      "type": "narrative",
+      "order": 5,
+      "title": "",
+      "content": "4. Customer Review\nProposal is live. Your customer evaluates, asks questions, requests changes, compares alternatives. Stay engaged. Answer questions. Address concerns. Negotiate internally on pricing and scope as needed."
+    },
+    {
+      "id": "section-stage-five",
+      "type": "narrative",
+      "order": 6,
+      "title": "",
+      "content": "5. Contracting\nCustomer accepted the terms. Legal and contracting teams step in. You're drafting binding agreements, securing internal approvals, negotiating final terms, and getting signatures. Multiple rounds are normal."
+    },
+    {
+      "id": "section-stage-won",
+      "type": "narrative",
+      "order": 7,
+      "title": "",
+      "content": "6. Closed - Won\nContract is signed. Deal is done. Customer is committed. Revenue can be recognized. Document the win reason (solution fit, pricing, POC success) for your win/loss analysis. Transition the account to onboarding."
+    },
+    {
+      "id": "section-stage-lost",
+      "type": "narrative",
+      "order": 8,
+      "title": "",
+      "content": "7. Closed - Lost\nCustomer went elsewhere, cut budget, or stalled beyond recovery. Document the loss reason (competitor won, misfit, funding issues). Review losses as a team to spot patterns and opportunities to improve."
+    },
+    {
+      "id": "section-naming-strategy",
+      "type": "narrative",
+      "order": 9,
+      "title": "Name Opportunities With Clarity",
+      "content": "Opportunity names should tell the story: customer, scope, and value in one line.\n\nStrong names:\n- Acme Corp - Financial Services Platform - $500K\n- TechCorp - Cloud Migration - Phase 1 - $250K\n- GlobalRetail - Inventory System - $1.2M\n\nAvoid vague names like:\n- Acme Corp - New Deal\n- Big Opportunity\n- TBD"
+    },
+    {
+      "id": "section-key-fields",
+      "type": "narrative",
+      "order": 10,
+      "title": "Essential Fields to Track",
+      "content": "- Opportunity Name: Clear, descriptive, customer + scope + value\n- Account: Entity Child Account (never Parent)\n- Close Date: Expected closure date, updated as deal moves\n- Stage: Current phase\n- Amount: Contract value\n- Probability: Win likelihood aligned to stage (Qualification 20%, Customer Review 70%, Contracting 90%)\n- Primary Contact: Lead stakeholder\n- Next Steps: Specific action to advance the deal\n- Products/Services: What you're selling\n- Description: Business context and proposed solution"
+    },
+    {
+      "id": "section-discipline",
+      "type": "narrative",
+      "order": 11,
+      "title": "Keep Opportunities Clean",
+      "content": "- One deal = one opportunity. Don't bundle expansions, renewals, or different products into one record.\n- No speculative deals. Create opportunities only when there's real customer interest.\n- Update regularly. Keep Stage, Close Date, and Probability current as the deal moves.\n- Document Next Steps. Be clear about what's required to advance.\n- Track losses thoroughly. Analyze reasons and document for team learning.\n- Prepare for transitions. When you win, hand off to onboarding and account management smoothly.\n\nClean opportunities are the foundation of accurate forecasting and pipeline health. Leadership relies on them to understand business trajectory."
     }
+  ],
+  "keyTakeaways": [
+    "All sales activity must occur on the Entity Child Account only, ensuring correct revenue attribution and clean reporting",
+    "Seven stages (Qualification through Closed - Won/Lost) represent distinct phases of the sales process, each requiring specific information",
+    "Accurate, disciplined opportunity management is the foundation of sales forecasting and pipeline reporting"
   ],
   "nextChapterId": "08-stage-gates"
 }

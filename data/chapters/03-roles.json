@@ -6,12 +6,66 @@
   "duration": 15,
   "sections": [
     {
-      "id": "section-roles",
+      "id": "section-intro-roles",
       "type": "narrative",
       "order": 0,
-      "title": "Roles in the Process",
-      "content": "The Salesforce commercial process involves multiple roles and teams, each with specific responsibilities. Clear role definition is essential to ensure that nothing falls through the cracks and that every stage of the process is owned by someone accountable.\n\n**Sales Representatives**: Sales representatives own the lead follow-up, lead qualification, opportunity progression, customer engagement, and commercial movement. When a lead enters the system, the assigned sales rep is responsible for verifying the lead's validity, understanding the customer's need, and qualifying the lead. Once qualified, the sales rep creates and manages the opportunity, moves it through stages by gathering required information, and shepherds the deal through to closure. Sales reps are also responsible for data accuracy—ensuring that the lead or opportunity record reflects the true state of the deal.\n\n**Account Managers**: Account managers own customer engagement continuity, account development, and monitoring. While sales representatives focus on closing new deals, account managers focus on customers who are already active or in the process of becoming active. Account managers ensure that onboarding is smooth, they monitor customer health and satisfaction, they identify expansion opportunities, and they own the relationship during the contract lifecycle and into the renewal cycle. Account managers may also engage early on complex opportunities to ensure that the customer solution is properly designed and supported.\n\n**CRM / Governance Team**: The CRM and Governance team supports the overall health of the Salesforce database. They own duplicate review and duplicate management, ensuring that the system doesn't contain multiple records for the same company or contact. They drive data quality discipline, setting standards for how fields are filled, what records should be deleted, and how historical data should be managed. They may also support onboarding, training, and enforcement of process rules.\n\n**Approvers and Leadership**: Approvers own pricing approval, contracting governance, and overall commercial control. Pricing approvers review quotes before they're sent to customers, ensuring that the pricing meets company guidelines and that any discounts or special terms have been properly documented and approved. Contracting approvers review contracts, amendments, and special terms to ensure compliance with company policy and legal requirements. Senior leadership may own account ownership decisions for large or strategic accounts, and they own oversight of the overall commercial pipeline and win/loss performance.\n\n**Finance and Legal**: Finance and Legal teams support the process by reviewing quotes for accuracy, reviewing contracts for compliance and risk, and ensuring that all commercial commitments are properly documented. Finance ensures that pricing is accurate and that terms of payment are clearly stated. Legal ensures that contracts protect the company's interests and comply with applicable laws and regulations.\n\n**Partnerships and Channel Teams**: For partner-led opportunities, the partnership team owns the relationship with the partner and ensures that partner-sourced deals are properly attributed, tracked, and managed according to partnership agreements.\n\nThe key to a smooth commercial process is that each role understands its responsibilities, that the handoffs between roles are clear, and that everyone has visibility into who owns what at each stage. The rest of this training will clarify exactly which role does what at each point in the customer journey."
+      "title": "Everyone Has a Role",
+      "content": "The Salesforce process involves multiple teams, each with specific responsibilities. Clear ownership ensures nothing falls through the cracks and every stage has an accountable owner.\n\nLet's explore who does what and why it matters."
+    },
+    {
+      "id": "section-sales-rep",
+      "type": "narrative",
+      "order": 1,
+      "title": "Sales Representative",
+      "content": "Owns: Lead follow-up, lead qualification, opportunity progression, deal advancement\n\nTheir Role:\n• Verify lead validity and understand the customer's actual need\n• Qualify leads against our criteria\n• Create and manage the opportunity record\n• Advance the opportunity through stages by gathering required information\n• Shepherd the deal from qualification to closure\n• Maintain data accuracy—ensuring the record reflects the true deal state\n\nSales reps are the primary driver of deal velocity and pipeline health."
+    },
+    {
+      "id": "section-account-manager",
+      "type": "narrative",
+      "order": 2,
+      "title": "Account Manager",
+      "content": "Owns: Customer engagement, account health, expansion, relationship continuity\n\nTheir Role:\n• Focus on customers who are active or becoming active (while sales reps focus on closing new deals)\n• Ensure smooth onboarding and customer success\n• Monitor customer health, usage, and satisfaction\n• Identify and drive expansion opportunities\n• Own the relationship through contract lifecycle and renewal\n• Partner with sales reps on complex deals to ensure proper solution design and support\n\nAccount managers ensure customers succeed and expand with NxN."
+    },
+    {
+      "id": "section-governance",
+      "type": "narrative",
+      "order": 3,
+      "title": "CRM & Governance Team",
+      "content": "Owns: Database health, duplicate management, data quality standards\n\nTheir Role:\n• Review and manage duplicate records\n• Set standards for field completion and data quality\n• Define which records should be retained or deleted\n• Manage historical data properly\n• Support onboarding, training, and process enforcement\n\nThey're the keepers of system integrity and data reliability."
+    },
+    {
+      "id": "section-approvers",
+      "type": "narrative",
+      "order": 4,
+      "title": "Approvers & Leadership",
+      "content": "Owns: Pricing approval, contracting governance, commercial control, pipeline oversight\n\nPricing Approvers:\n• Review quotes before customer delivery\n• Ensure pricing meets company guidelines\n• Approve discounts and special terms\n\nContracting Approvers:\n• Review contracts, amendments, and special terms\n• Ensure compliance with company policy and legal requirements\n• Validate signature authority\n\nSenior Leadership:\n• Own account ownership decisions for large/strategic accounts\n• Oversee overall commercial pipeline\n• Analyze win/loss performance\n\nThey provide the guardrails that protect company interests and drive accountability."
+    },
+    {
+      "id": "section-finance-legal",
+      "type": "narrative",
+      "order": 5,
+      "title": "Finance & Legal",
+      "content": "Owns: Financial accuracy, compliance, contract protection\n\nFinance:\n• Review quotes for pricing accuracy\n• Ensure payment terms are clearly documented\n• Validate financial commitments\n\nLegal:\n• Review contracts for compliance and risk\n• Ensure contracts protect company interests\n• Validate regulatory compliance\n• Advise on special terms and conditions\n\nThey're the last layer of protection before deals are locked in."
+    },
+    {
+      "id": "section-partners",
+      "type": "narrative",
+      "order": 6,
+      "title": "Partnership Teams",
+      "content": "Owns: Partner relationships, partner-led deals, channel attribution\n\nTheir Role:\n• Own the relationship with partners\n• Ensure partner-sourced deals are properly attributed\n• Track and manage deals according to partnership agreements\n• Coordinate between partner and internal teams\n\nThey're the bridge between NxN and our channel partners."
+    },
+    {
+      "id": "section-handoffs",
+      "type": "narrative",
+      "order": 7,
+      "title": "The Handoff Matters",
+      "content": "Success depends on three things:\n\n1. Clear ownership — Each role knows exactly what it owns\n2. Clean handoffs — Transitions between roles are explicit and supported\n3. Shared visibility — Everyone knows who owns what at each stage\n\nThe rest of this training shows you exactly who does what at each point in the journey. No surprises. No ambiguity. No gaps."
     }
+  ],
+  "keyTakeaways": [
+    "Sales Representatives own lead follow-up, qualification, and opportunity progression through to closure",
+    "Account Managers own customer engagement post-closure, account development, and expansion opportunities",
+    "CRM/Governance team ensures data quality through duplicate management and field completion standards"
   ],
   "nextChapterId": "04-lead-management"
 }

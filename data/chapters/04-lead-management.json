@@ -6,12 +6,52 @@
   "duration": 35,
   "sections": [
     {
-      "id": "section-lead-management",
+      "id": "section-intro-leads",
       "type": "narrative",
       "order": 0,
-      "title": "Lead Management",
-      "content": "The Lead is the entry point for all net-new B2B prospects entering the NxN commercial system. This principle is foundational to the entire process: unless a governed exception applies, every prospect that is not already a customer in Salesforce must start as a Lead.\n\n**Why Lead as the Entry Point?** The Lead stage allows NxN to evaluate, verify, and qualify prospects before committing them to a full account hierarchy and opportunity. A Lead is lightweight and flexible—it can be created from marketing systems, prospecting lists, partner referrals, or inbound requests. If the Lead turns out to be invalid, a duplicate, or not a fit, it can be researched, merged, or disqualified without cluttering the account database. If it's valid and qualified, it converts into the proper account hierarchy and becomes an Opportunity.\n\n**Lead Sources and Trusted vs. Untrusted Sources**: Leads can originate from various sources: inbound website inquiries, partner referrals, prospecting lists, marketing campaigns, sales prospecting, or referrals. Some sources are considered \"Trusted\" sources—meaning they have been pre-qualified, verified, or come from established partners. Other sources are \"Untrusted\"—meaning they require more thorough verification before qualification. For example, a lead from a trusted partner may require lighter verification, whereas a lead from a generic prospecting list may require detailed company and contact verification.\n\n**Lead Stages**: Leads progress through defined stages in Salesforce:\n\n- **New**: The lead has been created but not yet contacted or evaluated.\n- **Contacted**: The sales team has made first contact with the lead.\n- **Verified**: The company, contact, and basic need have been confirmed as real and valid.\n- **Qualified**: The lead meets NxN's qualification criteria (defined need, defined budget or funding, defined timeframe).\n- **Unqualified**: The lead does not meet qualification criteria and has been rejected.\n- **Nurture**: The lead is not yet ready to buy but shows interest; it may be nurtured for future sales activity.\n- **Converted**: The lead has converted into an Account and Opportunity.\n\nThe progression through these stages is not automatic. Sales representatives must take action to move leads forward—making phone calls, sending emails, scheduling meetings, and gathering information. Each stage movement should be documented in the lead record.\n\n**Qualification Framework**: Lead qualification at NxN follows a structured framework. A lead is qualified when:\n\n1. **Company Validity**: The company is a real, operating business entity in the prospect's stated industry and geography.\n2. **Contact Validity**: The contact person exists, has a legitimate email and phone number, and has some level of authority or influence in their organization.\n3. **Defined Need**: The prospect has expressed a specific business need that aligns with NxN's offerings.\n4. **Budget or Funding**: The prospect has confirmed (explicitly or by implication) that they have budget available or access to funding for this type of solution.\n5. **Timeframe**: The prospect has provided or indicated a timeframe for making a decision (e.g., \"we want to implement by Q3\").\n\nA lead that meets all five criteria is qualified and ready to convert. A lead that is missing any of these elements may be marked as Nurture (if there's clear interest but timing is not yet right) or Unqualified (if the need, budget, or timing is unlikely to materialize).\n\n**Assignment Rules**: When leads enter the system, they are automatically assigned to sales representatives based on assignment rules. These rules typically consider geography, account assignment, industry vertical, language, or other criteria. For example, a lead from the banking vertical in the New York region would be assigned to the banking specialist in that region. Assignment rules ensure that leads are routed to the person best positioned to pursue them.\n\n**Lead Enrichment**: As leads progress through the system, they should be enriched with additional information: company industry, company size, contact job title, contact decision authority, technology stack, competitor information, and other business context. Enrichment can be done through research, third-party data providers, or LinkedIn. Rich lead records enable more effective qualification and faster conversion.\n\n**Lead Scoring**: Some organizations implement lead scoring—assigning points based on engagement and profile fit. A lead that has downloaded multiple resources, attended a webinar, or visited the pricing page multiple times would receive higher engagement scores. A lead from a high-value industry or company size would receive higher profile scores. Scoring helps sales representatives prioritize which leads to pursue most actively.\n\n**Duplicate Management at the Lead Stage**: As leads enter the system, they can be duplicates of existing leads or contacts. The system enforces matching rules to flag potential duplicates. Duplicates should be identified and merged so that sales efforts are not wasted pursuing the same prospect multiple times or creating redundant records.\n\nUnderstanding Lead Management is critical because the quality of your leads determines the quality of your opportunities. Invest in proper lead creation, verification, and qualification, and your entire sales process becomes more efficient and your win rates improve."
+      "title": "Where Everything Starts",
+      "content": "The Lead is the entry point for all new prospects entering NxN's commercial system. This is foundational: every new prospect—without exception—starts as a Lead.\n\nWhy? Because a Lead is lightweight and flexible. You can create it from anywhere (marketing systems, prospecting lists, partner referrals, inbound requests). If it turns out to be invalid, a duplicate, or not a fit, you can research, merge, or disqualify it without cluttering the account database. If it's valid and qualified, it converts into the proper account hierarchy and becomes an Opportunity.\n\nLeads are your quality control layer."
+    },
+    {
+      "id": "section-lead-sources",
+      "type": "narrative",
+      "order": 1,
+      "title": "Where Leads Come From",
+      "content": "Leads originate from various sources:\n\n• Inbound inquiries — Website forms, demos, content requests\n• Partner referrals — Trusted partners introducing qualified prospects\n• Prospecting lists — Database lists, LinkedIn, industry lists\n• Marketing campaigns — Email, webinars, events\n• Sales prospecting — Direct outreach, cold calls\n• Customer referrals — Existing customers recommending others\n\nSome sources are \"Trusted\" (pre-qualified, verified, from established partners). Others are \"Untrusted\" (require thorough verification). A trusted partner referral might need light verification. A generic prospecting list needs detailed company and contact verification.\n\nTrust but verify."
+    },
+    {
+      "id": "section-lead-stages",
+      "type": "narrative",
+      "order": 2,
+      "title": "How Leads Progress",
+      "content": "Leads move through defined stages as you take action:\n\n1. New — Created, not yet contacted\n2. Contacted — You've made first contact\n3. Verified — Company, contact, and need are confirmed as real and valid\n4. Qualified — Meets all five qualification criteria (see next section)\n5. Unqualified — Does not meet criteria; rejected\n6. Nurture — Shows interest, but timing not right yet\n7. Converted — Has become an Account and Opportunity\n\nMovement isn't automatic. You drive it forward through phone calls, emails, meetings, and research. Document each stage change in the lead record."
+    },
+    {
+      "id": "section-qualification",
+      "type": "narrative",
+      "order": 3,
+      "title": "The Five Qualification Criteria",
+      "content": "A lead is qualified when it meets all five criteria:\n\n1. Company Validity — The company exists, operates in the stated industry/geography\n\n2. Contact Validity — The contact person exists, has legitimate contact info, has authority or influence\n\n3. Defined Need — They've expressed a specific business need aligned with your offering\n\n4. Budget or Funding — They've confirmed (explicitly or by implication) they have budget available\n\n5. Timeframe — They've indicated a decision timeline (e.g., \"implement by Q3\")\n\nAll five required. If you're missing one, decide: Nurture (interest but timing unclear) or Unqualified (unlikely to progress).\n\nQualification discipline saves time and improves conversion rates."
+    },
+    {
+      "id": "section-assignment-enrichment",
+      "type": "narrative",
+      "order": 4,
+      "title": "Assignment & Enrichment",
+      "content": "Assignment: When a lead enters the system, assignment rules automatically route it to the right sales rep based on geography, account assignment, industry vertical, or other criteria. A banking prospect in New York goes to the banking specialist in that region. This ensures the best person pursues each lead.\n\nEnrichment: As leads progress, enrich them with context:\n\n• Company industry and size\n• Contact job title and decision authority\n• Technology stack and competitors\n• Company growth, funding, recent news\n\nEnrichment through research, third-party data, or LinkedIn enables faster, more effective qualification and conversion."
+    },
+    {
+      "id": "section-duplicates-scoring",
+      "type": "narrative",
+      "order": 5,
+      "title": "Duplicates & Scoring",
+      "content": "Duplicate Management: Leads entering the system can be duplicates of existing leads or contacts. The system flags potential duplicates using matching rules. Identify and merge duplicates so you don't waste effort pursuing the same prospect twice.\n\nLead Scoring (optional): Some organizations score leads based on engagement and fit. Downloaded resources? Visited pricing page? Higher engagement score. High-value industry or company size? Higher profile score. Scoring helps you prioritize which leads to pursue most actively.\n\nThe quality of your leads determines the quality of your opportunities. Invest in proper lead creation, verification, and qualification. Your entire sales process becomes more efficient and win rates improve."
     }
+  ],
+  "keyTakeaways": [
+    "Leads must start in the system; every prospect must be verified and qualified using a five-criteria framework",
+    "Assignment rules route leads to the right sales representative based on geography, vertical, or other criteria",
+    "Duplicate matching at lead entry prevents costly duplicate pursuit and keeps the database clean"
   ],
   "nextChapterId": "05-conversion-hierarchy"
 }

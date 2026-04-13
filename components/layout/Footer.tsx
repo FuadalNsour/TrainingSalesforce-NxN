@@ -5,11 +5,9 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-50 border-t border-gray-200 mt-16">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8 mb-8">
-          {/* Logos */}
+          {/* Logo */}
           <div className="flex items-center gap-6">
-            <Image src="/logos/7x-black.svg" alt="7X" width={50} height={50} />
-            <span className="text-gray-400">×</span>
-            <Image src="/logos/nxn-green.svg" alt="NxN" width={50} height={50} />
+            <Image src="/logos/7x_Logo_Black_RGB.svg" alt="7X" width={50} height={50} />
           </div>
 
           {/* Copyright */}

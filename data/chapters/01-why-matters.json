@@ -9,9 +9,35 @@
       "id": "section-intro-why-matters",
       "type": "narrative",
       "order": 0,
-      "title": "Why This Training Matters",
-      "content": "Welcome to the NxN Salesforce Commercial Process Training. Salesforce is being used to create one standard way of working across the entire NxN commercial journey. This training is designed to ensure that everyone who participates in the sales process—from lead intake through contract execution and beyond—understands how to use Salesforce to drive consistency, control, and visibility throughout our commercial operations.\n\nThe objective of implementing this standardized process is to improve process clarity, data quality, governance, reporting, and commercial control across the entire organization. By establishing a single, unified approach to how we manage leads, accounts, contacts, opportunities, quotes, and contracts, we create a foundation for better decision-making, faster sales cycles, and higher-quality revenue.\n\nThere are three critical outcomes that this training and the underlying Salesforce process deliver:\n\n1. **Consistency**: Every sales professional in NxN follows the same process, in the same system, with the same terminology. Whether you're in New York or Singapore, whether you're working on a $10,000 deal or a $10 million deal, the process is the same. Consistency means that customers experience a unified NxN brand and approach, that managers can apply the same accountability frameworks, and that the organization can scale without confusion.\n\n2. **Control**: The process includes governance checkpoints, approval gates, and role-based responsibilities that ensure no deal moves forward without proper review and sign-off. Control is embedded in stage gates—you cannot move an opportunity to the next stage without satisfying specific readiness criteria. Contracts require signature authority validation. Quotes require pricing approval. Duplicates are caught and merged by dedicated teams. This control protects the company from pricing errors, regulatory violations, and unauthorized commitments.\n\n3. **Visibility**: When everyone captures the same data in the same way, leadership and managers can see the full picture of the commercial pipeline, forecast accurately, identify bottlenecks, understand what's working and what's not. Visibility comes from clean data, consistent record-keeping, and real-time reporting that reflects the true state of the business.\n\nThis training walks through the entire commercial journey from the moment a prospect becomes a lead through the point they become an active, paying customer. You'll learn the stages, the rules, the roles, the handoffs, and the reasoning behind each part of the process. By the end of this training, you'll understand not just what to do in Salesforce, but why each step matters and how it contributes to the broader success of the organization."
+      "title": "Welcome",
+      "content": "Welcome to the NxN Salesforce Commercial Process Training. We're implementing one unified way of working across our entire commercial journey—and this training ensures everyone in the sales process, from lead intake through contract execution, understands how to use Salesforce effectively.\n\nThe goal is simple: build a stronger commercial engine through consistency, control, and visibility."
+    },
+    {
+      "id": "section-the-foundation",
+      "type": "narrative",
+      "order": 1,
+      "title": "Why This Matters Now",
+      "content": "Today, without standardized processes, we face challenges:\n\n• Different approaches to managing leads, opportunities, and contracts across regions and teams\n• Data quality issues that make reporting unreliable\n• Governance gaps that create risk and missed opportunities\n• Limited visibility into what's actually happening in the pipeline\n\nSalesforce gives us the infrastructure. This training gives you the playbook.\n\nBy implementing one standard process—with consistent terminology, clear rules, and shared accountability—we unlock better decision-making, faster sales cycles, and higher-quality revenue."
+    },
+    {
+      "id": "section-three-pillars",
+      "type": "narrative",
+      "order": 2,
+      "title": "The Three Pillars",
+      "content": "Everything in this training rests on three outcomes:\n\nConsistency\nEvery sales professional follows the same process, in the same system, with the same terminology. Whether you're in New York or Singapore, closing a $10K or $10M deal—the process is identical. This means customers experience a unified NxN brand, managers can apply consistent accountability, and the organization can scale without confusion.\n\nControl\nGovernance checkpoints and approval gates ensure deals move forward only when they're ready. Stage gates enforce specific readiness criteria. Contracts validate signature authority. Quotes require pricing approval. Duplicates get caught and merged. This layer of control protects us from errors, compliance violations, and unauthorized commitments.\n\nVisibility\nWhen everyone captures data the same way, leadership sees the full pipeline picture. Accurate forecasting becomes possible. Bottlenecks emerge. Patterns surface. Visibility flows from clean data, consistent record-keeping, and real-time reporting that reflects the true state of business."
+    },
+    {
+      "id": "section-what-youll-learn",
+      "type": "narrative",
+      "order": 3,
+      "title": "What You'll Learn",
+      "content": "This training walks the entire customer journey—from prospect to lead to active customer. You'll discover:\n\n• The complete journey and how each stage connects to the next\n• Who owns what at each step and why those roles matter\n• How leads flow through the system and when they move to opportunities\n• What account structures look like and how they drive revenue accuracy\n• Which approval gates exist and what they protect\n• How quotes, contracts, and documentation work together\n• Where data quality is critical and how it affects the business\n\nBy the end, you'll understand not just *what* to do in Salesforce—but *why* each step exists and how it contributes to NxN's commercial success."
     }
+  ],
+  "keyTakeaways": [
+    "Consistency: Every sales professional follows the same process using the same system and terminology, enabling scalable operations and unified brand experience",
+    "Control: Governance checkpoints and approval gates protect the company from pricing errors, regulatory violations, and unauthorized commitments",
+    "Visibility: Clean data and consistent record-keeping enable accurate forecasting, identification of bottlenecks, and informed business decisions"
   ],
   "nextChapterId": "02-customer-journey"
 }

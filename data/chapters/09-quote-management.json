@@ -6,12 +6,66 @@
   "duration": 20,
   "sections": [
     {
-      "id": "section-quote-management",
+      "id": "section-what-is-quote",
       "type": "narrative",
       "order": 0,
-      "title": "Quote Management",
-      "content": "A Quote in Salesforce represents the proposed pricing and commercial scope offered to a customer. The Quote is a critical artifact because it documents what NxN is committing to deliver, at what price, and under what terms. Understanding how to create, approve, send, revise, and close quotes is essential to managing the deal pipeline effectively.\n\n**Core Quote Principle**: A Quote is created from an Opportunity. The Quote inherits the Account, Contact, and Opportunity information, and it documents the products, services, quantities, pricing, and terms for that specific opportunity. A Quote is not a standalone document; it is always linked to and derived from an Opportunity.\n\n**Quote Rules**:\n\n1. **Quote Creation from Opportunity**: Quotes are created from the Opportunity record, typically when the Opportunity is in the Solution Definition or Pricing & Quotation stage. The Quote pulls in the Customer (Account and Contact), the Opportunity details, and the sales team prepares the detailed product and pricing information.\n\n2. **Single Quote per Opportunity (at a time)**: At any given moment, there is typically one primary Quote associated with an Opportunity (the current, active proposal being evaluated by the customer). However, as negotiations occur, new versions of the Quote may be created. Previous versions are retained for history and audit purposes.\n\n3. **Quote Contains Products and Services**: Each Quote line item represents a specific product, service, quantity, unit price, and total price. The Quote aggregates all line items to calculate the total contract value. Line items inherit product pricing from the Salesforce product catalog, but prices can be adjusted manually (with appropriate approval for discounts).\n\n4. **Pricing Approval**: Before a Quote is sent to the customer, it must be approved by the appropriate pricing authority. Discounts above a certain threshold may require manager or director approval. The quote record shows who approved it and when.\n\n5. **Quote Status Tracking**: Quotes have statuses that reflect their lifecycle: Draft (being prepared), In Review (awaiting approval), Approved (ready to send), Sent (delivered to the customer), Accepted (customer has agreed), Rejected (customer declined), or Expired (time limit has passed).\n\n6. **Quote Versioning**: As negotiations occur, the customer may request changes to pricing, quantities, scope, or terms. Rather than modifying the original quote, a new version is created. This ensures a clear audit trail showing what was proposed at each stage of negotiations. All versions are retained in the system for reference.\n\n7. **Quote to Contract Linkage**: When a Quote is accepted by the customer and the deal moves toward closure, the Quote is linked to the Contract. The Contract pulls information from the Quote (pricing, products, terms) and includes additional legal and binding language.\n\n**Quote Use Cases**:\n\n**Standard Proposal**: A customer has defined needs, the team has designed a solution, and a quote is prepared showing the products, quantities, and pricing for the customer to review and approve.\n\n**Custom Pricing**: A customer may negotiate for volume discounts, service credits, or special pricing. A new Quote version is created with the negotiated pricing, approved internally, and sent to the customer for acceptance.\n\n**Pilot or Proof of Concept**: For complex deals, a smaller-scope quote for a pilot or proof of concept may be created first. Upon successful completion of the pilot, a larger-scale quote for full production deployment is created.\n\n**Multi-Year or Renewal**: A Quote may represent a multi-year commitment or a renewal of an existing contract. The terms, pricing, and service levels are specified in the Quote.\n\n**Why Versioning Matters**:\n\nProper Quote versioning is critical for several reasons:\n\n1. **Audit Trail**: Versioning creates a clear record of what was proposed at each stage of the sales process. If a dispute later arises about what was promised, the version history provides evidence of what the customer was offered.\n\n2. **Negotiation Clarity**: When multiple versions exist, it's clear which pricing and terms are current and which are obsolete. The customer knows exactly what they're being asked to approve, and the sales team knows not to accidentally send the wrong version.\n\n3. **Data Integrity**: By creating new versions rather than overwriting original quotes, the system maintains a complete history. This is important for forecasting (version 1 represented $500K; version 2 represented $750K based on additional scope) and for post-deal analysis.\n\n4. **Revenue Recognition**: For accounting purposes, the final quote version that was accepted is the basis for recognizing revenue. Earlier versions that were superseded are not used for revenue calculations.\n\n5. **Customer Communication**: When negotiating with a customer, referring to the specific version (e.g., \"Quote Version 3\") ensures that both parties are discussing the same proposal.\n\n**Quote Approval Workflow**:\n\nA typical Quote approval workflow looks like this:\n\n1. **Sales Rep Creates Draft Quote**: The sales representative creates a draft quote, selecting the products and entering quantities and pricing.\n2. **Internal Review**: The quote is reviewed by an account manager or product specialist for accuracy and completeness.\n3. **Pricing Approval**: If discounts exceed limits or special terms are proposed, the quote is routed to a Pricing Approver (often a sales manager or finance representative) for approval.\n4. **Final Approval**: Depending on deal size or complexity, a final approval from a director, finance manager, or executive may be required.\n5. **Send to Customer**: Once approved, the quote is marked as Approved, and a formal PDF or email is sent to the customer.\n6. **Customer Review and Negotiation**: The customer reviews the quote, may request changes, and negotiations may ensue.\n7. **Quote Revision and Re-approval**: If the customer requests changes, a new version is created, the changes are reviewed and approved internally, and the new version is sent.\n8. **Acceptance**: When the customer confirms acceptance of a Quote version, the Quote status is set to Accepted, and the Opportunity moves toward closure.\n\n**Quote Best Practices**:\n\n- Always create quotes from the Opportunity, not as standalone documents.\n- Never send a quote to a customer without internal approval.\n- Use descriptive quote names (e.g., \"Acme Corp - Financial Services Platform - Version 2\") so versions are easily distinguished.\n- Include clear terms and conditions in the quote so the customer understands the scope and pricing.\n- When creating a new version, mark the previous version as Superseded so the history is clear.\n- Once a quote is sent to the customer, only sales managers or approvers should modify it; prevent sales reps from unilaterally changing quotes after customer delivery.\n- Track which quote version was ultimately accepted; this is the basis for the contract and revenue recognition.\n\nQuotes are a fundamental part of the commercial process. Manage them carefully, approve them properly, and version them thoughtfully, and you'll have clear, defensible agreements with customers that protect both NxN and the customer."
+      "title": "What Is a Quote?",
+      "content": "A Quote is a formal proposal. It shows what you're selling, at what price, and under what terms. It's not a binding contract—it's the bridge between solution design and legal commitment.\n\nQuotes document the commercial deal so both you and your customer are clear on what's being offered and what it costs."
+    },
+    {
+      "id": "section-quote-principle",
+      "type": "narrative",
+      "order": 1,
+      "title": "The Core Principle: Always From Opportunity",
+      "content": "Quotes are created from Opportunities. They inherit Account, Contact, and Opportunity details.\n\nQuotes aren't standalone documents. They live within opportunities and pull key information from them. This keeps everything linked and auditable."
+    },
+    {
+      "id": "section-the-rules",
+      "type": "narrative",
+      "order": 2,
+      "title": "Six Essential Rules",
+      "content": "1. Born from Opportunity\nCreate quotes when the Opportunity is in Solution Definition or Pricing & Quotation. The quote inherits Customer (Account + Contact) and Opportunity details. You fill in products, quantities, and pricing.\n\n2. One Active Quote at a Time\nTypically one primary quote per Opportunity is being evaluated by the customer. New versions can be created, but previous versions stay in the record for audit and history.\n\n3. Line Items = Specificity\nEach line item is one product/service with quantity, unit price, and total. They roll up to contract value. Prices inherit from your catalog but can be adjusted (with approval for discounts).\n\n4. Approval Before Send\nNo quote reaches a customer without internal sign-off. Large discounts or special terms need manager or director approval. The record shows who approved it and when.\n\n5. Status Lifecycle\nQuotes flow through clear statuses: Draft → In Review → Approved → Sent → Accepted/Rejected/Expired. Status tracks where each quote is in its journey.\n\n6. Versioning Creates Audit Trail\nWhen the customer asks for changes, create a new version. Don't edit the original. This keeps a clean, defensible history of every proposal you made at every negotiation stage."
+    },
+    {
+      "id": "section-quote-contract",
+      "type": "narrative",
+      "order": 3,
+      "title": "Quote to Contract: The Handoff",
+      "content": "When a customer accepts a quote and the deal moves to closure, the quote links to the Contract. The Contract pulls pricing, products, and terms from the quote and adds legal language. This keeps your commercial and legal agreements aligned."
+    },
+    {
+      "id": "section-use-cases",
+      "type": "narrative",
+      "order": 4,
+      "title": "When You Need Quotes",
+      "content": "Standard Proposal\nCustomer defined needs. You designed the solution. You quote products, quantities, and pricing for their review.\n\nNegotiated Pricing\nCustomer wants volume discounts or service credits. New version, new pricing, internal approval, sent back.\n\nPilot/POC\nComplex deal? Start small with a pilot quote. After success, create a larger production quote.\n\nMulti-Year or Renewal\nQuote documents the multi-year commitment, renewal terms, pricing, and service levels."
+    },
+    {
+      "id": "section-versioning-matters",
+      "type": "narrative",
+      "order": 5,
+      "title": "Why Versioning Is Critical",
+      "content": "Audit Trail\nEvery version is tracked. If disputes arise later, you have clear evidence of what was offered when.\n\nNegotiation Clarity\nBoth you and the customer know which version is current. No confusion. No accidental old proposals.\n\nData Integrity\nVersioning preserves complete history. Version 1 was $500K. Version 2 was $750K with added scope. This matters for forecasting and post-deal analysis.\n\nRevenue Recognition\nAccounting uses the final accepted version for revenue records. Earlier versions don't factor into financials.\n\nCommunication\nSay \"Quote Version 3\" and everyone's on the same page. Prevents miscommunication."
+    },
+    {
+      "id": "section-approval-workflow",
+      "type": "narrative",
+      "order": 6,
+      "title": "The Approval Workflow",
+      "content": "1. Sales Rep Creates Draft\nSelect products. Enter quantities and pricing. Mark as Draft.\n\n2. Internal Review\nAccount manager or product specialist checks for accuracy and completeness.\n\n3. Pricing Approval\nLarge discounts or special terms? Route to Pricing Approver (sales manager or finance).\n\n4. Final Approval\nDeal size or complexity warrant it? Director, finance manager, or executive signs off.\n\n5. Send to Customer\nMark as Approved. Send formal PDF or email.\n\n6. Customer Review & Negotiation\nThey review. They ask questions. They request changes.\n\n7. Revise & Re-approve\nNew version. Internal review and approval again. Send it out.\n\n8. Acceptance\nCustomer agrees. Mark as Accepted. Opportunity moves to closure."
+    },
+    {
+      "id": "section-best-practices",
+      "type": "narrative",
+      "order": 7,
+      "title": "Best Practices for Clean Quotes",
+      "content": "- Always create from Opportunity, never standalone.\n- Never send without internal approval.\n- Use descriptive names: \"Acme Corp - Financial Services Platform - Version 2\" not \"Quote V2.\"\n- Write clear terms and conditions so scope and pricing are unambiguous.\n- Mark old versions as Superseded when you create new ones.\n- Once sent to customer, only managers can modify—no reps changing quotes after delivery.\n- Always track which version was accepted—this is your revenue and contract foundation.\n\nQuotes done right protect both you and your customer. Manage carefully. Approve thoroughly. Version thoughtfully."
     }
+  ],
+  "keyTakeaways": [
+    "Quotes are created from Opportunities and represent proposals, not binding agreements; versioning tracks negotiation history",
+    "Quotes require internal approval (pricing authority) before sending to customers, preventing errors and unauthorized commitments",
+    "Version control creates audit trails and ensures clarity about which pricing and terms are current vs. superseded"
   ],
   "nextChapterId": "10-contract-management"
 }
