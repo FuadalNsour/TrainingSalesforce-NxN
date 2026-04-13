@@ -1,6 +1,5 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { ChapterPreviewCard } from '@/components/home/ChapterPreviewCard';
-import { CTAButtons } from '@/components/home/CTAButtons';
 import { loadCourseMetadata } from '@/lib/content-loader';
 
 export default async function Home() {
@@ -10,9 +9,6 @@ export default async function Home() {
     <div className="bg-white">
       {/* Hero Section */}
       <HeroSection />
-
-      {/* CTA Buttons */}
-      <CTAButtons />
 
       {/* Chapter Preview Cards */}
       <section className="max-w-7xl mx-auto px-6 py-16">
