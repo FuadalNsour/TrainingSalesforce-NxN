@@ -1,5 +1,4 @@
 import { Chapter } from '@/lib/types';
-import { ProgressBar } from '@/components/common/ProgressBar';
 
 interface ChapterHeroProps {
   chapter: Chapter;
@@ -14,7 +13,6 @@ export const ChapterHero: React.FC<ChapterHeroProps> = ({ chapter }) => {
         <p className="text-secondary text-lg mb-6">{chapter.description}</p>
         <div className="flex items-center gap-4">
           <span className="text-sm text-secondary">Chapter {chapter.order} of 5</span>
-          <ProgressBar current={chapter.order} total={5} showPercent={false} />
         </div>
       </div>
     </section>
