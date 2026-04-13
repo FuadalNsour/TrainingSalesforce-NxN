@@ -3,16 +3,11 @@
 @layer base {
   body {
     background-color: white;
-    color: var(--color-primary, #1F2937);
+    color: #1F2937;
   }
 
   a {
-    color: var(--color-accent, #10B981);
-    transition: color 0.2s;
-  }
-
-  a:hover {
-    color: var(--color-accent-dark, #059669);
+    @apply text-green-600 hover:text-green-700 transition-colors;
   }
 
   h1, h2, h3, h4, h5, h6 {
