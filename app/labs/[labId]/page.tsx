@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { getLabById } from '@/lib/labs-data';
 import { LabScenario } from '@/components/labs/LabScenario';
@@ -11,11 +11,29 @@ import { ROUTES } from '@/lib/constants';
 
 export default function LabDetailPage() {
   const params = useParams();
-  const labId = typeof params.labId === 'string' ? params.labId : '';
-  const lab = getLabById(labId);
+  const [labId, setLabId] = useState<string>('');
+  const [lab, setLab] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (params?.labId) {
+      const id = typeof params.labId === 'string' ? params.labId : '';
+      setLabId(id);
+      setLab(getLabById(id));
+      setIsLoading(false);
+    }
+  }, [params]);
 
   const [userAnswer, setUserAnswer] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  if (isLoading) {
+    return (
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <p className="text-gray-600">Loading lab...</p>
+      </div>
+    );
+  }
 
   if (!lab) {
     return (
