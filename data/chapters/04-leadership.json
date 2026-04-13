@@ -1,0 +1,83 @@
+{
+  "id": "04-leadership",
+  "title": "Leadership Visibility",
+  "description": "Provide leadership with the visibility they need to make strategic decisions and remove bottlenecks",
+  "order": 4,
+  "duration": 30,
+  "audience": ["leadership", "account-manager"],
+  "sections": [
+    {
+      "type": "hero",
+      "title": "Executive Visibility & Control",
+      "subtitle": "Empower leadership with actionable data and insights"
+    },
+    {
+      "type": "narrative",
+      "content": "Leadership needs clear visibility into pipeline health, deal progress, and organizational performance. This section covers how to structure reporting, metrics, and reviews that give executives the insights they need without creating administrative overhead."
+    },
+    {
+      "type": "process-timeline",
+      "title": "Leadership Review Cadence",
+      "stages": [
+        {
+          "label": "1. Daily Pulse Metrics",
+          "description": "Track key indicators: pipeline value, velocity, deal counts by stage",
+          "role": "leadership"
+        },
+        {
+          "label": "2. Weekly Pipeline Review",
+          "description": "Assess movement, identify risks, and reallocate resources",
+          "role": "leadership"
+        },
+        {
+          "label": "3. Monthly Business Review",
+          "description": "Comprehensive analysis of trends, performance vs plan, and strategic adjustments",
+          "role": "leadership"
+        },
+        {
+          "label": "4. Quarterly Planning",
+          "description": "Adjust strategy, set targets, and plan resource allocation",
+          "role": "leadership"
+        }
+      ]
+    },
+    {
+      "type": "warning-panel",
+      "title": "Leadership Challenges",
+      "mistakes": [
+        {
+          "text": "Buried leads in unqualified pipeline",
+          "whyHarmful": "Inflates pipeline and masks real sales capacity"
+        },
+        {
+          "text": "Lack of consistent deal reviews",
+          "whyHarmful": "Misses early warning signs and loses opportunities for coaching"
+        },
+        {
+          "text": "No clear hand-off from sales to implementation",
+          "whyHarmful": "Drives customer dissatisfaction and poor contract execution"
+        }
+      ]
+    },
+    {
+      "type": "lab-challenge",
+      "title": "Lab: Building a Leadership Dashboard"
+    },
+    {
+      "type": "recap",
+      "keyTakeaways": [
+        "Clean pipeline data is the foundation of visibility",
+        "Establish regular review cadences at daily, weekly, monthly, and quarterly levels",
+        "Use metrics to drive coaching and development, not just performance reviews",
+        "Visibility enables faster decision-making and resource allocation"
+      ]
+    }
+  ],
+  "keyTakeaways": [
+    "Clean pipeline data is the foundation of visibility",
+    "Establish regular review cadences at daily, weekly, monthly, and quarterly levels",
+    "Use metrics to drive coaching and development, not just performance reviews",
+    "Visibility enables faster decision-making and resource allocation"
+  ],
+  "nextChapterId": "05-full-cycle"
+}

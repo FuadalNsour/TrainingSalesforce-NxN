@@ -1,0 +1,79 @@
+{
+  "id": "02-build-structure",
+  "title": "Build the Right Customer Structure",
+  "description": "Understand how to structure customer accounts and relationships for maximum commercial success",
+  "order": 2,
+  "duration": 35,
+  "audience": ["sales", "account-manager", "crm", "leadership"],
+  "sections": [
+    {
+      "type": "hero",
+      "title": "Building Effective Account Structures",
+      "subtitle": "The foundation of long-term customer success"
+    },
+    {
+      "type": "narrative",
+      "content": "A properly structured customer account creates clarity around decision-making, budget ownership, and strategic alignment. This section explores how to identify the right organizational structure within your customer accounts and map it to your commercial strategy."
+    },
+    {
+      "type": "process-timeline",
+      "title": "Account Structure Process",
+      "stages": [
+        {
+          "label": "1. Map Organizational Chart",
+          "description": "Understand the customer's internal organizational structure and reporting lines"
+        },
+        {
+          "label": "2. Identify Decision Makers",
+          "description": "Locate budget holders, influencers, and technical decision makers"
+        },
+        {
+          "label": "3. Define Account Hierarchy",
+          "description": "Structure parent/child accounts based on customer geography or business units"
+        },
+        {
+          "label": "4. Align to Strategy",
+          "description": "Connect account structure to your commercial and customer success plans"
+        }
+      ]
+    },
+    {
+      "type": "warning-panel",
+      "title": "Common Mistakes",
+      "mistakes": [
+        {
+          "text": "Flat account structures with no hierarchy",
+          "whyHarmful": "Makes it difficult to manage multi-division accounts and creates visibility gaps"
+        },
+        {
+          "text": "Failing to map influencers early",
+          "whyHarmful": "Leads to surprised stakeholders and delayed approvals later in the sales cycle"
+        },
+        {
+          "text": "Not updating structure as organization changes",
+          "whyHarmful": "Creates stale data and missed opportunities when customers reorganize"
+        }
+      ]
+    },
+    {
+      "type": "lab-challenge",
+      "title": "Lab: Account Structure Assessment"
+    },
+    {
+      "type": "recap",
+      "keyTakeaways": [
+        "Clear account structures enable better territory and account management",
+        "Map both reporting lines and budget ownership separately",
+        "Align account structure with customer success and expansion plans",
+        "Regular account reviews catch organizational changes early"
+      ]
+    }
+  ],
+  "keyTakeaways": [
+    "Clear account structures enable better territory and account management",
+    "Map both reporting lines and budget ownership separately",
+    "Align account structure with customer success and expansion plans",
+    "Regular account reviews catch organizational changes early"
+  ],
+  "nextChapterId": "03-sell-controlled"
+}
