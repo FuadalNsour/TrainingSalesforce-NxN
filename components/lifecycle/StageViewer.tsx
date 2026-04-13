@@ -58,7 +58,7 @@ export const StageViewer: React.FC<StageViewerProps> = ({ stage }) => {
         <p className="text-secondary text-sm mb-2">Primary Roles</p>
         <div className="flex flex-wrap gap-2">
           {stage.relatedRoles.map((role) => (
-            <Badge key={role} type="role">{role}</Badge>
+            <Badge key={role} type="status">{role}</Badge>
           ))}
         </div>
       </div>

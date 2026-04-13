@@ -110,7 +110,7 @@ export default function Dashboard() {
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <Badge type={chapter.completed ? 'progress' : 'status'}>
+                    <Badge type="status">
                       {chapter.completed ? '✓ Completed' : 'In Progress'}
                     </Badge>
                     <span className="text-sm text-secondary">{chapter.duration} min</span>

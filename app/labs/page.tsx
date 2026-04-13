@@ -63,7 +63,7 @@ export default function LabsPage() {
             <div key={lab.id} className="bg-surface border border-gray-700 rounded-lg p-6 hover:border-accent transition-colors">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-display font-bold">{lab.title}</h3>
-                <Badge type="progress">
+                <Badge type="status">
                   {lab.difficulty.charAt(0).toUpperCase() + lab.difficulty.slice(1)}
                 </Badge>
               </div>

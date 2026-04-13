@@ -19,7 +19,7 @@ export const ChapterPreviewCard: React.FC<ChapterPreviewCardProps> = ({ chapter 
         </p>
         <div className="flex gap-2 flex-wrap">
           <Badge type="status">Interactive</Badge>
-          <Badge type="role">All Roles</Badge>
+          <Badge type="status">All Roles</Badge>
         </div>
       </Card>
     </Link>

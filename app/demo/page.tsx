@@ -61,7 +61,7 @@ export default function DemoPage() {
                 <p className="text-secondary text-sm mb-4">{scenario.description}</p>
                 <div className="flex items-center gap-2 mb-4">
                   <Badge type="status">{scenario.duration}</Badge>
-                  <Badge type="role">{scenario.complexity}</Badge>
+                  <Badge type="status">{scenario.complexity}</Badge>
                 </div>
                 <button className="text-accent hover:text-white transition-colors font-semibold text-sm">
                   Watch Demo →

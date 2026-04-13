@@ -8,8 +8,8 @@ export const WarningPanel: React.FC<{ section: Section }> = ({ section }) => {
       <div className="space-y-3 text-secondary">
         {((section.content as any).mistakes || []).map((mistake: any, idx: number) => (
           <div key={idx} className="pb-3 border-b border-gray-700 last:border-0">
-            <p className="font-bold">{mistake.title}</p>
-            <p className="text-sm">{mistake.description}</p>
+            <p className="font-bold">{mistake.title || mistake.text}</p>
+            <p className="text-sm">{mistake.description || mistake.whyHarmful}</p>
           </div>
         ))}
       </div>

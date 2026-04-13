@@ -23,7 +23,11 @@ export const SectionRenderer: React.FC<SectionRendererProps> = ({ section }) => 
       return (
         <div className="prose prose-invert max-w-none">
           {section.title && <h2 className="text-2xl font-display font-bold mb-4">{section.title}</h2>}
-          <p className="text-secondary text-lg leading-relaxed">{section.content as string}</p>
+          <p className="text-secondary text-lg leading-relaxed">
+            {typeof section.content === 'string'
+              ? section.content
+              : (section.content as any).text}
+          </p>
         </div>
       );
 
@@ -40,7 +44,10 @@ export const SectionRenderer: React.FC<SectionRendererProps> = ({ section }) => 
       return <ChecklistSection section={section} />;
 
     case 'recap':
-      return <KeyTakeaways takeaways={section.content as string[]} />;
+      const recapContent = Array.isArray(section.content)
+        ? section.content
+        : (section.content as any).items;
+      return <KeyTakeaways takeaways={recapContent} />;
 
     default:
       return (

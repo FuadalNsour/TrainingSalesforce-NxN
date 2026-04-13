@@ -20,9 +20,9 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'font-display font-bold rounded transition-colors duration-200 cursor-pointer';
 
   const variants = {
-    primary: 'bg-accent text-black hover:bg-opacity-90 disabled:opacity-50',
-    secondary: 'bg-surface text-white border border-gray-700 hover:bg-opacity-80',
-    outline: 'border-2 border-accent text-accent hover:bg-accent hover:text-black',
+    primary: 'bg-green-600 text-white hover:bg-green-700 disabled:opacity-50',
+    secondary: 'bg-gray-100 text-gray-900 border border-gray-300 hover:bg-gray-200',
+    outline: 'border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white',
   };
 
   const sizes = {
