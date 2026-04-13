@@ -18,7 +18,7 @@ export const LifecycleViewer: React.FC = () => {
     loadLifecycle();
   }, []);
 
-  if (loading) return <div className="p-8 text-center text-secondary">Loading lifecycle...</div>;
+  if (loading) return <div className="p-8 text-center text-gray-600">Loading lifecycle...</div>;
 
   const selectedStage = stages.find(s => s.id === selectedStageId);
 
@@ -27,7 +27,7 @@ export const LifecycleViewer: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Left: Stage List */}
         <div className="md:col-span-1">
-          <h2 className="text-xl font-display font-bold mb-4">Stages</h2>
+          <h2 className="text-xl font-display font-bold mb-4 text-gray-900">Stages</h2>
           <div className="space-y-2">
             {stages.map((stage) => (
               <button
@@ -36,7 +36,7 @@ export const LifecycleViewer: React.FC = () => {
                 className={`w-full text-left px-4 py-3 rounded border transition-all ${
                   selectedStageId === stage.id
                     ? 'bg-accent text-black border-accent font-bold'
-                    : 'bg-surface border-gray-700 text-white hover:border-accent'
+                    : 'bg-white border-gray-200 text-gray-900 hover:border-accent'
                 }`}
               >
                 <p className="text-sm">{stage.order}</p>

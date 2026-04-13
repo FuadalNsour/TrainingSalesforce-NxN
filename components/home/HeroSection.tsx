@@ -2,34 +2,27 @@ import { MotionAccent } from '@/components/common/MotionAccent';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="min-h-screen bg-black flex flex-col items-center justify-center px-6 relative overflow-hidden">
-      {/* Motion accent background */}
-      <div className="absolute top-20 right-20 opacity-30">
-        <MotionAccent orientation="diagonal" />
-      </div>
-
-      <div className="max-w-4xl text-center relative z-10">
-        <h1 className="text-6xl md:text-7xl font-display font-bold mb-6 leading-tight">
-          Master the NxN Salesforce Process
+    <section className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-gray-900">
+          Master NxN Sales Framework
         </h1>
-
-        <p className="text-xl text-secondary mb-12">
-          Interactive training for Account Managers, Sales, CRM, and commercial leaders. Learn the complete customer lifecycle discipline that powers controlled growth.
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          Learn the complete NxN methodology for consultative, controlled, and repeatable sales.
+          Start with Chapter 1 and progress through five comprehensive modules.
         </p>
-
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-accent text-black px-8 py-4 font-display font-bold rounded hover:opacity-90 transition">
-            Start Training
-          </button>
-          <button className="border-2 border-accent text-accent px-8 py-4 font-display font-bold rounded hover:bg-accent hover:text-black transition">
-            View Journey
-          </button>
+          <a href="/chapters/01-find-qualify">
+            <button className="bg-accent text-black px-8 py-4 font-display font-bold rounded hover:opacity-90 transition">
+              Start Learning
+            </button>
+          </a>
+          <a href="/labs">
+            <button className="border-2 border-accent text-accent px-8 py-4 font-display font-bold rounded hover:bg-accent hover:text-black transition">
+              View Labs
+            </button>
+          </a>
         </div>
-      </div>
-
-      {/* Bottom motion accent */}
-      <div className="absolute bottom-10 left-10 opacity-20">
-        <MotionAccent orientation="horizontal" />
       </div>
     </section>
   );

@@ -11,10 +11,10 @@ interface ChapterPreviewCardProps {
 export const ChapterPreviewCard: React.FC<ChapterPreviewCardProps> = ({ chapter }) => {
   return (
     <Link href={ROUTES.chapter(chapter.id)}>
-      <Card hoverable className="h-full flex flex-col">
+      <Card hoverable className="h-full flex flex-col bg-white border border-gray-200">
         <p className="text-sm text-accent font-bold mb-2">Chapter {chapter.order}</p>
-        <h3 className="text-xl font-display font-bold mb-3">{chapter.title}</h3>
-        <p className="text-secondary mb-4 flex-1">
+        <h3 className="text-xl font-display font-bold mb-3 text-gray-900">{chapter.title}</h3>
+        <p className="text-gray-600 mb-4 flex-1">
           Learn key concepts and processes in this chapter of the NxN Salesforce methodology.
         </p>
         <div className="flex gap-2 flex-wrap">

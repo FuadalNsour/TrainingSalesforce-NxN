@@ -11,19 +11,19 @@ export const StageViewer: React.FC<StageViewerProps> = ({ stage }) => {
     <div className="space-y-6">
       {/* Header */}
       <div className="border-l-4 border-accent pl-6">
-        <h2 className="text-3xl font-display font-bold mb-2">{stage.name}</h2>
-        <p className="text-secondary text-lg">{stage.description}</p>
+        <h2 className="text-3xl font-display font-bold mb-2 text-gray-900">{stage.name}</h2>
+        <p className="text-gray-600 text-lg">{stage.description}</p>
       </div>
 
       {/* Entry/Exit Logic */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card>
           <p className="text-accent font-bold text-sm mb-2">Entry Logic</p>
-          <p className="text-secondary">{stage.entryLogic}</p>
+          <p className="text-gray-600">{stage.entryLogic}</p>
         </Card>
         <Card>
           <p className="text-accent font-bold text-sm mb-2">Exit Logic</p>
-          <p className="text-secondary">{stage.exitLogic}</p>
+          <p className="text-gray-600">{stage.exitLogic}</p>
         </Card>
       </div>
 
@@ -32,7 +32,7 @@ export const StageViewer: React.FC<StageViewerProps> = ({ stage }) => {
         <p className="text-accent font-bold text-sm mb-4">What You Should Do</p>
         <ul className="space-y-2">
           {stage.userActions.map((action, idx) => (
-            <li key={idx} className="flex gap-3 text-secondary">
+            <li key={idx} className="flex gap-3 text-gray-600">
               <span className="text-accent font-bold flex-shrink-0">✓</span>
               <span>{action}</span>
             </li>
@@ -45,7 +45,7 @@ export const StageViewer: React.FC<StageViewerProps> = ({ stage }) => {
         <p className="text-yellow-500 font-bold text-sm mb-4">⚠️ Common Mistakes</p>
         <ul className="space-y-2">
           {stage.commonMistakes.map((mistake, idx) => (
-            <li key={idx} className="flex gap-3 text-secondary">
+            <li key={idx} className="flex gap-3 text-gray-600">
               <span className="text-yellow-500 flex-shrink-0">✗</span>
               <span>{mistake}</span>
             </li>
@@ -55,7 +55,7 @@ export const StageViewer: React.FC<StageViewerProps> = ({ stage }) => {
 
       {/* Roles */}
       <div>
-        <p className="text-secondary text-sm mb-2">Primary Roles</p>
+        <p className="text-gray-600 text-sm mb-2">Primary Roles</p>
         <div className="flex flex-wrap gap-2">
           {stage.relatedRoles.map((role) => (
             <Badge key={role} type="status">{role}</Badge>

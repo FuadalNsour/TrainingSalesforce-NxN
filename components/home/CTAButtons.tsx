@@ -1,28 +1,22 @@
-'use client';
-
-import { Button } from '@/components/common/Button';
-import { ROUTES } from '@/lib/constants';
-import Link from 'next/link';
-
 export const CTAButtons: React.FC = () => {
   return (
-    <section className="bg-surface border-y border-gray-700 py-12">
+    <section className="bg-gray-50 border-y border-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row gap-4 justify-center">
-        <Link href={ROUTES.home}>
-          <Button variant="primary" size="lg">
-            Go to Home
-          </Button>
-        </Link>
-        <Link href={ROUTES.chapter('01-find-qualify')}>
-          <Button variant="secondary" size="lg">
+        <a href="/chapters/01-find-qualify">
+          <button className="bg-accent text-black px-8 py-4 font-display font-bold rounded hover:opacity-90 transition">
             Start Chapter 1
-          </Button>
-        </Link>
-        <Link href={ROUTES.lifecycle}>
-          <Button variant="outline" size="lg">
+          </button>
+        </a>
+        <a href="/labs">
+          <button className="bg-gray-700 text-white px-8 py-4 font-display font-bold rounded hover:bg-gray-800 transition">
+            Explore Labs
+          </button>
+        </a>
+        <a href="/lifecycle">
+          <button className="border-2 border-gray-300 text-gray-900 px-8 py-4 font-display font-bold rounded hover:bg-gray-100 transition">
             View Lifecycle
-          </Button>
-        </Link>
+          </button>
+        </a>
       </div>
     </section>
   );
