@@ -7,52 +7,73 @@
   "audience": ["sales", "account-manager", "crm", "leadership"],
   "sections": [
     {
+      "id": "hero-05-1",
       "type": "hero",
-      "title": "Full-Cycle Integrated Demo",
-      "subtitle": "Apply everything you've learned to a realistic scenario"
+      "order": 1,
+      "content": {
+        "title": "Full-Cycle Integrated Demo",
+        "subtitle": "Apply everything you've learned to a realistic scenario"
+      }
     },
     {
+      "id": "narrative-05-1",
       "type": "narrative",
-      "content": "This final chapter brings together all the commercial process discipline you've learned: finding and qualifying customers, building proper structures, executing controlled selling, and maintaining leadership visibility. You'll work through a complete deal cycle from prospecting through close."
+      "order": 2,
+      "content": {
+        "text": "This final chapter brings together all the commercial process discipline you've learned: finding and qualifying customers, building proper structures, executing controlled selling, and maintaining leadership visibility. You'll work through a complete deal cycle from prospecting through close."
+      }
     },
     {
+      "id": "timeline-05-1",
       "type": "process-timeline",
-      "title": "Complete Commercial Cycle",
-      "stages": [
-        {
-          "label": "1. Identify & Qualify Opportunity",
-          "description": "Find the right customer fit and validate qualification criteria",
-          "role": "sales"
-        },
-        {
-          "label": "2. Build Account Structure",
-          "description": "Map stakeholders and align account organization",
-          "role": "account-manager"
-        },
-        {
-          "label": "3. Execute Controlled Sales",
-          "description": "Move through discovery, proposal, and negotiation phases",
-          "role": "sales"
-        },
-        {
-          "label": "4. Secure Signature & Handoff",
-          "description": "Close the deal and transition to implementation with visibility",
-          "role": "leadership"
-        }
-      ]
+      "order": 3,
+      "content": {
+        "title": "Complete Commercial Cycle",
+        "stages": [
+          {
+            "label": "1. Identify & Qualify Opportunity",
+            "description": "Find the right customer fit and validate qualification criteria",
+            "role": "sales"
+          },
+          {
+            "label": "2. Build Account Structure",
+            "description": "Map stakeholders and align account organization",
+            "role": "account-manager"
+          },
+          {
+            "label": "3. Execute Controlled Sales",
+            "description": "Move through discovery, proposal, and negotiation phases",
+            "role": "sales"
+          },
+          {
+            "label": "4. Secure Signature & Handoff",
+            "description": "Close the deal and transition to implementation with visibility",
+            "role": "leadership"
+          }
+        ]
+      }
     },
     {
+      "id": "lab-05-1",
       "type": "lab-challenge",
-      "title": "Lab: Integrated Deal Scenario"
+      "order": 4,
+      "content": {
+        "title": "Lab: Integrated Deal Scenario",
+        "description": "Work through a complete deal from start to finish"
+      }
     },
     {
+      "id": "recap-05-1",
       "type": "recap",
-      "keyTakeaways": [
-        "Every commercial cycle involves find, structure, sell, and lead disciplines",
-        "Each role (sales, account-manager, leadership) has specific responsibilities at each stage",
-        "Discipline at one stage prevents problems in later stages",
-        "Strong fundamentals lead to faster, more predictable revenue"
-      ]
+      "order": 5,
+      "content": {
+        "items": [
+          "Every commercial cycle involves find, structure, sell, and lead disciplines",
+          "Each role (sales, account-manager, leadership) has specific responsibilities at each stage",
+          "Discipline at one stage prevents problems in later stages",
+          "Strong fundamentals lead to faster, more predictable revenue"
+        ]
+      }
     }
   ],
   "keyTakeaways": [

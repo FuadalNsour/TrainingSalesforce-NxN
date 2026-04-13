@@ -24,9 +24,9 @@ export const LifecycleViewer: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Left: Stage List */}
-        <div className="lg:col-span-1">
+        <div className="md:col-span-1">
           <h2 className="text-xl font-display font-bold mb-4">Stages</h2>
           <div className="space-y-2">
             {stages.map((stage) => (
@@ -47,7 +47,7 @@ export const LifecycleViewer: React.FC = () => {
         </div>
 
         {/* Right: Stage Details */}
-        <div className="lg:col-span-2">
+        <div className="md:col-span-1 lg:col-span-2">
           {selectedStage && <StageViewer stage={selectedStage} />}
         </div>
       </div>

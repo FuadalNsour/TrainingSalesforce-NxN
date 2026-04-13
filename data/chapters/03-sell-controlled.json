@@ -7,70 +7,95 @@
   "audience": ["sales", "account-manager", "crm"],
   "sections": [
     {
+      "id": "hero-03-1",
       "type": "hero",
-      "title": "Disciplined Sales Execution",
-      "subtitle": "Control the sales process to increase win rates"
+      "order": 1,
+      "content": {
+        "title": "Disciplined Sales Execution",
+        "subtitle": "Control the sales process to increase win rates"
+      }
     },
     {
+      "id": "narrative-03-1",
       "type": "narrative",
-      "content": "Controlled selling means managing every step of the sales process with intention and discipline. It's about moving at the customer's pace while maintaining momentum, asking the right questions before proposing solutions, and ensuring alignment at each stage."
+      "order": 2,
+      "content": {
+        "text": "Controlled selling means managing every step of the sales process with intention and discipline. It's about moving at the customer's pace while maintaining momentum, asking the right questions before proposing solutions, and ensuring alignment at each stage."
+      }
     },
     {
+      "id": "timeline-03-1",
       "type": "process-timeline",
-      "title": "Controlled Sales Sequence",
-      "stages": [
-        {
-          "label": "1. Establish Scope",
-          "description": "Define what success looks like and the scope of the engagement",
-          "role": "sales"
-        },
-        {
-          "label": "2. Qualify Thoroughly",
-          "description": "Verify need, budget, timeline, and decision-making process before proposing",
-          "role": "sales"
-        },
-        {
-          "label": "3. Present Custom Solution",
-          "description": "Position a solution tailored to their specific needs and constraints",
-          "role": "sales"
-        },
-        {
-          "label": "4. Secure Commitment",
-          "description": "Move from proposal to signed contract with clear next steps",
-          "role": "account-manager"
-        }
-      ]
+      "order": 3,
+      "content": {
+        "title": "Controlled Sales Sequence",
+        "stages": [
+          {
+            "label": "1. Establish Scope",
+            "description": "Define what success looks like and the scope of the engagement",
+            "role": "sales"
+          },
+          {
+            "label": "2. Qualify Thoroughly",
+            "description": "Verify need, budget, timeline, and decision-making process before proposing",
+            "role": "sales"
+          },
+          {
+            "label": "3. Present Custom Solution",
+            "description": "Position a solution tailored to their specific needs and constraints",
+            "role": "sales"
+          },
+          {
+            "label": "4. Secure Commitment",
+            "description": "Move from proposal to signed contract with clear next steps",
+            "role": "account-manager"
+          }
+        ]
+      }
     },
     {
+      "id": "warning-03-1",
       "type": "warning-panel",
-      "title": "Pitfalls to Avoid",
-      "mistakes": [
-        {
-          "text": "Presenting solutions before understanding needs",
-          "whyHarmful": "Leads to rejected proposals and longer sales cycles"
-        },
-        {
-          "text": "Accepting vague timelines or budgets",
-          "whyHarmful": "Results in deals that stall or fall through at the last moment"
-        },
-        {
-          "text": "Moving forward with single decision maker",
-          "whyHarmful": "Risks losing deals to internal political changes"
-        }
-      ]
+      "order": 4,
+      "content": {
+        "title": "Pitfalls to Avoid",
+        "mistakes": [
+          {
+            "text": "Presenting solutions before understanding needs",
+            "whyHarmful": "Leads to rejected proposals and longer sales cycles"
+          },
+          {
+            "text": "Accepting vague timelines or budgets",
+            "whyHarmful": "Results in deals that stall or fall through at the last moment"
+          },
+          {
+            "text": "Moving forward with single decision maker",
+            "whyHarmful": "Risks losing deals to internal political changes"
+          }
+        ]
+      }
     },
     {
+      "id": "lab-03-1",
       "type": "lab-challenge",
-      "title": "Lab: Sales Qualification Scenario"
+      "order": 5,
+      "content": {
+        "title": "Lab: Sales Qualification Scenario",
+        "description": "Navigate a complex qualification conversation"
+      }
     },
     {
+      "id": "recap-03-1",
       "type": "recap",
-      "keyTakeaways": [
-        "Controlled selling means following a repeatable process at each stage",
-        "Qualify before you propose—it saves time and increases win rates",
-        "Maintain momentum while respecting the customer's pace",
-        "Document decisions and agreements to avoid misalignment"
-      ]
+      "order": 6,
+      "content": {
+        "items": [
+          "Controlled selling means following a repeatable process at each stage",
+          "Qualify before you propose—it saves time and increases win rates",
+          "Maintain momentum while respecting the customer's pace",
+          "Document decisions and agreements to avoid misalignment"
+        ]
+      }
     }
   ],
   "keyTakeaways": [
