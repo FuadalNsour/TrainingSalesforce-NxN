@@ -1,0 +1,35 @@
+{
+  "title": "NxN Salesforce Commercial Process Training",
+  "description": "Learn the complete NxN Salesforce commercial customer lifecycle and process discipline",
+  "duration": 180,
+  "audience": ["sales", "account-manager", "crm", "leadership"],
+  "version": "1.0",
+  "lastUpdated": "2026-04-13",
+  "chapters": [
+    {
+      "id": "01-find-qualify",
+      "title": "Find and Qualify the Right Customer",
+      "order": 1
+    },
+    {
+      "id": "02-build-structure",
+      "title": "Build the Right Customer Structure",
+      "order": 2
+    },
+    {
+      "id": "03-sell-controlled",
+      "title": "Sell in a Controlled Way",
+      "order": 3
+    },
+    {
+      "id": "04-leadership",
+      "title": "Leadership Visibility",
+      "order": 4
+    },
+    {
+      "id": "05-full-cycle",
+      "title": "Full-Cycle Demo and Lab",
+      "order": 5
+    }
+  ]
+}

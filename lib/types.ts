@@ -76,12 +76,18 @@ export interface CommonMistake {
   relatedStages: string[];
 }
 
+export interface ChapterReference {
+  id: string;
+  title: string;
+  order: number;
+}
+
 export interface CourseMetadata {
   title: string;
   description: string;
   duration: number; // total minutes
   audience: Role[];
-  chapters: Chapter[];
+  chapters: ChapterReference[];
   version: string;
   lastUpdated: string;
 }
