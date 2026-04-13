@@ -1,0 +1,234 @@
+{
+  "stages": [
+    {
+      "id": "lead-new",
+      "name": "Lead - New",
+      "description": "A potential customer identified through marketing or sales development",
+      "order": 1,
+      "color": "#10B981",
+      "entryLogic": "Created from marketing list, referral, or inbound inquiry",
+      "exitLogic": "Move to Verification after Company Identity check begins",
+      "userActions": [
+        "Research company and stakeholders",
+        "Schedule initial conversation",
+        "Gather preliminary qualification data"
+      ],
+      "commonMistakes": [
+        "Reaching out without research",
+        "Contacting wrong stakeholder",
+        "Skipping Company Identity verification"
+      ],
+      "relatedRoles": ["sales", "crm"]
+    },
+    {
+      "id": "lead-verification",
+      "name": "Lead - Verification",
+      "description": "Validating company identity and initial fit",
+      "order": 2,
+      "color": "#14B8A6",
+      "entryLogic": "Company Identity gate begins - verify registration, financials, business model fit",
+      "exitLogic": "Either move to Qualified (pass Gate 1) or Disqualified (fail Gate 1)",
+      "userActions": [
+        "Verify official corporate registration",
+        "Check financial stability indicators",
+        "Confirm industry/business model alignment",
+        "Identify key stakeholders"
+      ],
+      "commonMistakes": [
+        "Moving too fast without proper due diligence",
+        "Accepting vague company information",
+        "Skipping stakeholder research"
+      ],
+      "relatedRoles": ["crm", "sales"]
+    },
+    {
+      "id": "lead-qualified",
+      "name": "Lead - Qualified",
+      "description": "Passed initial gates; ready for opportunity exploration",
+      "order": 3,
+      "color": "#10B981",
+      "entryLogic": "Pass Gates 1 & 2: Company Identity verified, right stakeholders engaged",
+      "exitLogic": "Move to Account Conversion (create Account) or back to unqualified",
+      "userActions": [
+        "Schedule discovery calls with decision-makers",
+        "Understand business problems and pain points",
+        "Assess fit and viability",
+        "Prepare conversion proposal"
+      ],
+      "commonMistakes": [
+        "Talking about features instead of problems",
+        "Not involving all decision-makers",
+        "Rushing to proposal without consensus"
+      ],
+      "relatedRoles": ["sales", "account-manager"]
+    },
+    {
+      "id": "account-conversion",
+      "name": "Account - Conversion",
+      "description": "Moving from Lead to Account relationship",
+      "order": 4,
+      "color": "#14B8A6",
+      "entryLogic": "Create Account record with approved hierarchy and data structure",
+      "exitLogic": "Account onboarding begins",
+      "userActions": [
+        "Create Account with correct parent/child hierarchy",
+        "Set Contact roles and relationships",
+        "Establish data stewardship roles",
+        "Configure account team"
+      ],
+      "commonMistakes": [
+        "Creating duplicate Accounts",
+        "Wrong parent-child hierarchy",
+        "Missing Contact relationships"
+      ],
+      "relatedRoles": ["crm", "account-manager"]
+    },
+    {
+      "id": "account-onboarding",
+      "name": "Account - Onboarding",
+      "description": "New account setup and initial engagement",
+      "order": 5,
+      "color": "#10B981",
+      "entryLogic": "Account created and data structure validated",
+      "exitLogic": "Move to Active after onboarding checklist complete",
+      "userActions": [
+        "Kick off onboarding calls",
+        "Deliver implementation plan",
+        "Set expectations for communication and engagement",
+        "Schedule first business review"
+      ],
+      "commonMistakes": [
+        "No structured onboarding plan",
+        "Unclear expectations",
+        "Missing executive alignment"
+      ],
+      "relatedRoles": ["account-manager", "sales"]
+    },
+    {
+      "id": "account-active",
+      "name": "Account - Active",
+      "description": "Ongoing commercial relationship",
+      "order": 6,
+      "color": "#10B981",
+      "entryLogic": "Onboarding complete; regular business reviews scheduled",
+      "exitLogic": "Dormant (no activity 90+ days) or Blocked (compliance/payment issue)",
+      "userActions": [
+        "Regular business reviews",
+        "Identify expansion opportunities",
+        "Monitor account health and NPS",
+        "Manage ongoing Opportunities and Quotes"
+      ],
+      "commonMistakes": [
+        "Taking account for granted",
+        "No regular business reviews",
+        "Missing expansion signals"
+      ],
+      "relatedRoles": ["account-manager", "sales"]
+    },
+    {
+      "id": "opportunity-new",
+      "name": "Opportunity - New",
+      "description": "Initial commercial opportunity identified",
+      "order": 7,
+      "color": "#14B8A6",
+      "entryLogic": "Customer expresses interest in specific solution or deal",
+      "exitLogic": "Pass qualification gates or mark as lost",
+      "userActions": [
+        "Document opportunity details",
+        "Identify decision-making committee",
+        "Understand business case and timeline",
+        "Assess win probability"
+      ],
+      "commonMistakes": [
+        "Opportunity created without business case",
+        "Wrong account linkage",
+        "No clear next steps"
+      ],
+      "relatedRoles": ["sales"]
+    },
+    {
+      "id": "opportunity-qualified",
+      "name": "Opportunity - Qualified",
+      "description": "Business case confirmed; ready for proposal",
+      "order": 8,
+      "color": "#10B981",
+      "entryLogic": "Business case validated; decision-makers confirmed; timeline defined",
+      "exitLogic": "Quote created and sent",
+      "userActions": [
+        "Finalize solution design",
+        "Confirm pricing and terms",
+        "Get internal approval if needed",
+        "Prepare Quote"
+      ],
+      "commonMistakes": [
+        "Quote without confirmed budget",
+        "Skipping internal approval",
+        "Missing commercial terms discussion"
+      ],
+      "relatedRoles": ["sales", "leadership"]
+    },
+    {
+      "id": "quote",
+      "name": "Quote",
+      "description": "Formal offer presented to customer",
+      "order": 9,
+      "color": "#14B8A6",
+      "entryLogic": "Opportunity qualified; terms agreed internally",
+      "exitLogic": "Quote accepted (move to Contract) or lost",
+      "userActions": [
+        "Send Quote to customer",
+        "Answer pricing/terms questions",
+        "Manage Quote version iterations",
+        "Track response timeline"
+      ],
+      "commonMistakes": [
+        "Quote without clear approval path",
+        "Missing T&Cs or key terms",
+        "No quote version management"
+      ],
+      "relatedRoles": ["sales", "leadership"]
+    },
+    {
+      "id": "contract",
+      "name": "Contract",
+      "description": "Legal agreement executed",
+      "order": 10,
+      "color": "#10B981",
+      "entryLogic": "Quote accepted; move to contract negotiation and execution",
+      "exitLogic": "Contract signed (Closed Won) or deal lost",
+      "userActions": [
+        "Finalize contract terms",
+        "Get legal review if needed",
+        "Route for customer signature",
+        "Get internal approvals"
+      ],
+      "commonMistakes": [
+        "Treating Quote and Contract as the same",
+        "Missing compliance/legal review",
+        "No clear signature authority"
+      ],
+      "relatedRoles": ["sales", "leadership"]
+    },
+    {
+      "id": "closed-won",
+      "name": "Closed - Won",
+      "description": "Deal successfully closed; customer onboarded",
+      "order": 11,
+      "color": "#10B981",
+      "entryLogic": "Contract signed and fulfilled",
+      "exitLogic": "Transition to Account Active status",
+      "userActions": [
+        "Complete deal documentation",
+        "Hand off to delivery/account management",
+        "Schedule customer kickoff",
+        "Log lessons learned"
+      ],
+      "commonMistakes": [
+        "Closing without evidence (contract, payment)",
+        "No handoff process",
+        "Missing customer kickoff"
+      ],
+      "relatedRoles": ["sales", "account-manager"]
+    }
+  ]
+}
