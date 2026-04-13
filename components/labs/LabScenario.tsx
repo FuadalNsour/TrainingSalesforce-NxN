@@ -11,15 +11,7 @@ export function LabScenario({ lab }: LabScenarioProps) {
     <div>
       <div className="mb-6">
         <div className="flex items-center gap-3 mb-4">
-          <Badge
-            variant={
-              lab.difficulty === 'beginner'
-                ? 'success'
-                : lab.difficulty === 'intermediate'
-                  ? 'warning'
-                  : 'danger'
-            }
-          >
+          <Badge type="status">
             {lab.difficulty.charAt(0).toUpperCase() + lab.difficulty.slice(1)}
           </Badge>
           <span className="text-sm text-gray-600">Chapter {lab.chapterId.charAt(0)}</span>
