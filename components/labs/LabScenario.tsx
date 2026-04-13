@@ -14,7 +14,7 @@ export function LabScenario({ lab }: LabScenarioProps) {
           <Badge type="status">
             {lab.difficulty.charAt(0).toUpperCase() + lab.difficulty.slice(1)}
           </Badge>
-          <span className="text-sm text-gray-600">Chapter {lab.chapterId.charAt(0)}</span>
+          <span className="text-sm text-gray-600">Chapter {parseInt(lab.chapterId.substring(0, 2), 10)}</span>
         </div>
         <h1 className="text-4xl font-display font-bold text-gray-900 mb-2">{lab.title}</h1>
         <p className="text-lg text-gray-600">{lab.description}</p>

@@ -34,7 +34,7 @@ export default function LabsPage() {
                   <span className="text-sm font-bold text-green-600">
                     {lab.difficulty.charAt(0).toUpperCase() + lab.difficulty.slice(1)}
                   </span>
-                  <span className="text-sm text-gray-600">Chapter {lab.chapterId.charAt(0)}</span>
+                  <span className="text-sm text-gray-600">Chapter {parseInt(lab.chapterId.substring(0, 2), 10)}</span>
                 </div>
                 <Link href={ROUTES.lab(lab.id)}>
                   <Button variant="primary" size="sm">
