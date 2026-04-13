@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ROUTES } from '@/lib/constants';
 
 const Navigation: React.FC = () => {
@@ -9,8 +10,8 @@ const Navigation: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo & Brand */}
         <Link href={ROUTES.home} className="flex items-center gap-3">
-          <div className="text-2xl font-display font-bold text-green-600">NxN</div>
-          <span className="text-sm text-gray-600 hidden sm:inline">Salesforce Training</span>
+          <Image src="/logos/7x-black.svg" alt="7X" width={40} height={40} />
+          <span className="text-sm text-gray-600 hidden sm:inline">NxN Training</span>
         </Link>
 
         {/* Navigation Links */}
