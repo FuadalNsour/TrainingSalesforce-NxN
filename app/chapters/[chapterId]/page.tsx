@@ -14,9 +14,12 @@ interface ChapterPageProps {
 }
 
 export default async function ChapterPage({ params }: ChapterPageProps) {
+  // Await params as it's a Promise in Next.js 16
+  const resolvedParams = await params;
+
   let chapter;
   try {
-    chapter = await loadChapter(params.chapterId);
+    chapter = await loadChapter(resolvedParams.chapterId);
   } catch (error) {
     notFound();
   }
