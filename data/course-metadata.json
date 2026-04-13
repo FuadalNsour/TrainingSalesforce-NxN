@@ -1,94 +1,88 @@
 {
   "title": "NxN Salesforce Commercial Process Training",
   "description": "Learn the complete NxN Salesforce commercial customer lifecycle and process discipline",
-  "duration": 380,
+  "duration": 360,
   "audience": ["sales", "account-manager", "crm", "leadership"],
-  "version": "1.0",
+  "version": "2.0",
   "lastUpdated": "2026-04-13",
   "chapters": [
     {
-      "id": "01-find-qualify",
-      "title": "Find and Qualify the Right Customer",
+      "id": "01-why-matters",
+      "title": "Why This Training Matters",
       "order": 1,
       "duration": 20
     },
     {
-      "id": "02-build-structure",
-      "title": "Build the Right Customer Structure",
+      "id": "02-customer-journey",
+      "title": "The Full Customer Journey",
       "order": 2,
       "duration": 25
     },
     {
-      "id": "03-sell-controlled",
-      "title": "Sell in a Controlled Way",
+      "id": "03-roles",
+      "title": "Roles in the Process",
       "order": 3,
       "duration": 15
     },
     {
-      "id": "04-leadership",
-      "title": "Leadership Visibility",
+      "id": "04-lead-management",
+      "title": "Lead Management",
       "order": 4,
       "duration": 35
     },
     {
-      "id": "05-full-cycle",
-      "title": "Full-Cycle Demo and Lab",
+      "id": "05-conversion-hierarchy",
+      "title": "Conversion and Hierarchy",
       "order": 5,
       "duration": 30
     },
     {
-      "id": "06-engagement",
-      "title": "Engagement Strategy",
+      "id": "06-account-lifecycle",
+      "title": "Account Lifecycle",
       "order": 6,
       "duration": 25
     },
     {
-      "id": "07-account-planning",
-      "title": "Account Planning",
+      "id": "07-opportunity-management",
+      "title": "Opportunity Management",
       "order": 7,
       "duration": 35
     },
     {
-      "id": "08-stakeholder-analysis",
-      "title": "Stakeholder Analysis",
+      "id": "08-stage-gates",
+      "title": "Stage Gates and Required Readiness",
       "order": 8,
       "duration": 20
     },
     {
-      "id": "09-deal-management",
-      "title": "Deal Management",
+      "id": "09-quote-management",
+      "title": "Quote Management",
       "order": 9,
       "duration": 20
     },
     {
-      "id": "10-forecasting",
-      "title": "Forecasting and Analytics",
+      "id": "10-contract-management",
+      "title": "Contract Management",
       "order": 10,
       "duration": 25
     },
     {
-      "id": "11-pipeline-management",
-      "title": "Pipeline Management",
+      "id": "11-data-quality",
+      "title": "Data Quality, Duplicates, and Governance",
       "order": 11,
       "duration": 30
     },
     {
-      "id": "12-customer-success",
-      "title": "Customer Success Handoff",
+      "id": "12-reporting",
+      "title": "Reporting Outcomes",
       "order": 12,
       "duration": 20
     },
     {
-      "id": "13-compliance-governance",
-      "title": "Compliance and Governance",
+      "id": "13-full-cycle-simulation",
+      "title": "Full-Cycle Training Simulation",
       "order": 13,
       "duration": 40
-    },
-    {
-      "id": "14-advanced-techniques",
-      "title": "Advanced Techniques and Best Practices",
-      "order": 14,
-      "duration": 25
     }
   ]
 }

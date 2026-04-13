@@ -1,0 +1,17 @@
+{
+  "id": "01-why-matters",
+  "order": 1,
+  "title": "Why This Training Matters",
+  "description": "Understand the business drivers for implementing a standardized Salesforce commercial process across the NxN organization.",
+  "duration": 20,
+  "sections": [
+    {
+      "id": "section-intro-why-matters",
+      "type": "narrative",
+      "order": 0,
+      "title": "Why This Training Matters",
+      "content": "Welcome to the NxN Salesforce Commercial Process Training. Salesforce is being used to create one standard way of working across the entire NxN commercial journey. This training is designed to ensure that everyone who participates in the sales process—from lead intake through contract execution and beyond—understands how to use Salesforce to drive consistency, control, and visibility throughout our commercial operations.\n\nThe objective of implementing this standardized process is to improve process clarity, data quality, governance, reporting, and commercial control across the entire organization. By establishing a single, unified approach to how we manage leads, accounts, contacts, opportunities, quotes, and contracts, we create a foundation for better decision-making, faster sales cycles, and higher-quality revenue.\n\nThere are three critical outcomes that this training and the underlying Salesforce process deliver:\n\n1. **Consistency**: Every sales professional in NxN follows the same process, in the same system, with the same terminology. Whether you're in New York or Singapore, whether you're working on a $10,000 deal or a $10 million deal, the process is the same. Consistency means that customers experience a unified NxN brand and approach, that managers can apply the same accountability frameworks, and that the organization can scale without confusion.\n\n2. **Control**: The process includes governance checkpoints, approval gates, and role-based responsibilities that ensure no deal moves forward without proper review and sign-off. Control is embedded in stage gates—you cannot move an opportunity to the next stage without satisfying specific readiness criteria. Contracts require signature authority validation. Quotes require pricing approval. Duplicates are caught and merged by dedicated teams. This control protects the company from pricing errors, regulatory violations, and unauthorized commitments.\n\n3. **Visibility**: When everyone captures the same data in the same way, leadership and managers can see the full picture of the commercial pipeline, forecast accurately, identify bottlenecks, understand what's working and what's not. Visibility comes from clean data, consistent record-keeping, and real-time reporting that reflects the true state of the business.\n\nThis training walks through the entire commercial journey from the moment a prospect becomes a lead through the point they become an active, paying customer. You'll learn the stages, the rules, the roles, the handoffs, and the reasoning behind each part of the process. By the end of this training, you'll understand not just what to do in Salesforce, but why each step matters and how it contributes to the broader success of the organization."
+    }
+  ],
+  "nextChapterId": "02-customer-journey"
+}
