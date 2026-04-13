@@ -1,7 +1,7 @@
 {
   "title": "NxN Salesforce Commercial Process Training",
   "description": "Learn the complete NxN Salesforce commercial customer lifecycle and process discipline",
-  "duration": 360,
+  "duration": 385,
   "audience": ["sales", "account-manager", "crm", "leadership"],
   "version": "2.0",
   "lastUpdated": "2026-04-13",
@@ -83,6 +83,12 @@
       "title": "Full-Cycle Training Simulation",
       "order": 13,
       "duration": 40
+    },
+    {
+      "id": "14-common-mistakes",
+      "title": "Common Mistakes and Final Recap",
+      "order": 14,
+      "duration": 25
     }
   ]
 }
