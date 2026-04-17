@@ -1,42 +1,34 @@
 import { HeroSection } from '@/components/home/HeroSection';
-import { ChapterPreviewCard } from '@/components/home/ChapterPreviewCard';
+import { LearningPathSection } from '@/components/home/LearningPathSection';
+import { CourseInfoSection } from '@/components/home/CourseInfoSection';
 import { loadCourseMetadata } from '@/lib/content-loader';
 
 export default async function Home() {
   const courseMetadata = await loadCourseMetadata();
 
+  // Transform metadata into Chapter format for LearningPathSection
+  const chapters = courseMetadata.chapters.map((ch, index) => ({
+    id: ch.id,
+    title: ch.title,
+    description: `Learn about ${ch.title.toLowerCase()}`,
+    duration: ch.duration ? Math.ceil(ch.duration / 60) : 1,
+    difficulty: (['beginner', 'intermediate', 'advanced'] as const)[index % 3],
+  }));
+
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <HeroSection />
-
-      {/* Chapter Preview Cards */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-display font-bold mb-8 text-gray-900">Learning Path</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courseMetadata.chapters.map((chapter) => (
-            <ChapterPreviewCard key={chapter.id} chapter={chapter} />
-          ))}
-        </div>
-      </section>
-
-      {/* Course Info */}
-      <section className="max-w-7xl mx-auto px-6 py-16 border-t border-gray-200 mt-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <p className="text-4xl font-display font-bold text-accent">{courseMetadata.chapters.length}</p>
-            <p className="text-gray-600">Chapters</p>
-          </div>
-          <div>
-            <p className="text-4xl font-display font-bold text-accent">{Math.ceil(courseMetadata.duration / 60)}</p>
-            <p className="text-gray-600">Hours of training</p>
-          </div>
-          <div>
-            <p className="text-4xl font-display font-bold text-accent">∞</p>
-            <p className="text-gray-600">Learn at your pace</p>
-          </div>
-        </div>
-      </section>
-    </div>
+    <main className="w-full">
+      <HeroSection
+        title="Master the NxN Framework"
+        description="Learn proven commercial training techniques to accelerate sales success"
+        primaryCta={{ label: 'Start Learning', href: '/chapters/01-why-matters' }}
+        secondaryCta={{ label: 'Explore Labs', href: '/labs' }}
+        tertiaryCta={{ label: 'View Timeline', href: '/lifecycle' }}
+      />
+      <LearningPathSection chapters={chapters} />
+      <CourseInfoSection
+        totalChapters={courseMetadata.chapters.length}
+        totalHours={Math.ceil(courseMetadata.duration / 60)}
+      />
+    </main>
   );
 }
