@@ -1,22 +1,23 @@
 import { Variants } from 'framer-motion';
 
-// Discovery Motion: Chapter card hover (narrowing prospect list)
+// Discovery Motion: Chapter card hover (narrowing prospect list + expanding glow)
 export const discoveryCard: Variants = {
   hover: {
     y: -4,
-    x: 0,
+    x: -2, // Inward slide 2px
+    boxShadow: '0 20px 40px rgba(3, 105, 161, 0.25)', // Expanded blue glow
     transition: {
       duration: 0.3,
-      ease: [0.16, 1, 0.3, 1], // cubic-bezier(0.16, 1, 0.3, 1)
+      ease: [0.16, 1, 0.3, 1],
     },
-    boxShadow: '0 20px 40px rgba(3, 105, 161, 0.15)',
   },
 };
 
-// Commitment Motion: Button fill left-to-right
+// Commitment Motion: Button fill effect + text slide (progress/advancement)
 export const commitmentButton: Variants = {
   hover: {
-    boxShadow: '0 12px 24px rgba(3, 105, 161, 0.2)',
+    backgroundPosition: ['0% 0%', '100% 0%'], // Left-to-right fill
+    boxShadow: '0 12px 24px rgba(3, 105, 161, 0.3)', // Expanded shadow
     transition: { duration: 0.25, ease: 'easeOut' },
   },
   tap: {
@@ -24,28 +25,31 @@ export const commitmentButton: Variants = {
   },
 };
 
-// Cycle Motion: Subtle rotation + pulsing border
-export const cycleMotion = {
-  rotate: [0, 1, 0, -1, 0],
-  transition: {
-    duration: 8,
-    repeat: Infinity,
-    ease: 'easeInOut',
-  },
-};
-
-export const cyclePulse: Variants = {
+// Cycle Motion: Rotation + pulsing border (repeatable cycle concept)
+export const cycleMotion: Variants = {
   animate: {
-    opacity: [0.15, 0.3, 0.15],
+    rotate: [0, 1, 0, -1, 0],
     transition: {
-      duration: 3,
+      duration: 8,
       repeat: Infinity,
       ease: 'easeInOut',
     },
   },
 };
 
-// Reveal Motion: Staggered fade-in + slide up
+// Alternative: Separated pulse for clarity (use where needed)
+export const cyclePulse: Variants = {
+  animate: {
+    opacity: [0.15, 0.3, 0.15],
+    transition: {
+      duration: 8, // Matched to cycleMotion
+      repeat: Infinity,
+      ease: 'easeInOut',
+    },
+  },
+};
+
+// Reveal Motion: Staggered fade-in + slide up (sequential teaching)
 export const revealContent: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -55,6 +59,7 @@ export const revealContent: Variants = {
   },
 };
 
+// Stagger Container: Orchestrates staggered children animations
 export const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -66,7 +71,7 @@ export const staggerContainer: Variants = {
   },
 };
 
-// Flow Motion: Timeline dots + lines light up sequentially
+// Flow Motion: Timeline dots light up sequentially (progression concept)
 export const timelineDot: Variants = {
   hidden: { scale: 0.5, opacity: 0 },
   visible: {
@@ -76,15 +81,16 @@ export const timelineDot: Variants = {
   },
 };
 
-// Engagement Motion: Focus state
+// Engagement Motion: Focus state with glow + blur increase (active discovery)
 export const engagementFocus: Variants = {
   focus: {
     boxShadow: '0 0 0 3px rgba(3, 105, 161, 0.1), 0 0 12px rgba(3, 105, 161, 0.2)',
+    backdropFilter: 'blur(18px)', // Increased from default 15px
     transition: { duration: 0.15, ease: 'easeOut' },
   },
 };
 
-// Check if user prefers reduced motion
+// Accessibility: Respect prefers-reduced-motion for all animations
 export const respectReducedMotion = (variants: Variants) => {
   if (typeof window === 'undefined') return variants;
 
