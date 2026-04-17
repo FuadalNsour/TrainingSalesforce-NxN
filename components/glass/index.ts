@@ -4,3 +4,6 @@ export { GlassCard } from './GlassCard';
 export { GlassNav } from './GlassNav';
 export { ProcessTimeline } from './ProcessTimeline';
 export { LabChallenge } from './LabChallenge';
+export { SkeletonGlass } from './SkeletonGlass';
+export { AnimatedCounter } from './AnimatedCounter';
+export { StaggerContainer } from './StaggerContainer';
