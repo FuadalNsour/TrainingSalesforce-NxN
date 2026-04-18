@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import clsx from 'clsx';
 import { LifecycleViewer } from '@/components/lifecycle/LifecycleViewer';
 import { StageCard } from '@/components/lifecycle/StageCard';
 import { StageDataCard } from '@/components/lifecycle/StageDataCard';
@@ -108,7 +109,39 @@ export default function LifecyclePage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-[#F0F9FF] to-white">
+    <main className="min-h-screen bg-gradient-to-b from-white via-[#F0F9FF] to-white flex">
+      {/* Sticky Stage Labels Sidebar (Optional - improved UX) */}
+      <aside className="hidden lg:block w-48 bg-white/40 backdrop-blur-sm border-r border-[#BAE6FD] sticky top-0 h-screen overflow-y-auto pt-8">
+        <div className="px-6 py-4">
+          <h3 className="text-sm font-semibold text-[#0F172A] mb-4">Stages</h3>
+          <nav className="space-y-2">
+            {LIFECYCLE_STAGES.map((stage) => (
+              <motion.button
+                key={stage.id}
+                onClick={() => handleStageClick(stage.id)}
+                whileHover={{ x: 4 }}
+                className={clsx(
+                  'w-full text-left px-4 py-2 rounded-lg transition-all duration-200 text-sm',
+                  expandedStage === stage.id
+                    ? 'bg-white/60 border-l-4 font-semibold'
+                    : 'text-[#64748B] hover:bg-white/30',
+                )}
+                style={
+                  expandedStage === stage.id
+                    ? { borderLeftColor: stage.color, color: stage.color }
+                    : {}
+                }
+              >
+                <span className="mr-2">{stage.icon}</span>
+                {stage.title}
+              </motion.button>
+            ))}
+          </nav>
+        </div>
+      </aside>
+
+      {/* Main Content Area */}
+      <div className="flex-1">
       {/* Header Section */}
       <section className="bg-gradient-to-br from-white to-[#F0F9FF] border-b border-[#BAE6FD] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -215,15 +248,26 @@ export default function LifecyclePage() {
             {/* Metrics Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {LIFECYCLE_STAGES.find((s) => s.id === expandedStage)?.metrics.map(
-                (metric, idx) => (
-                  <StageDataCard
-                    key={idx}
-                    label={metric.label}
-                    value={typeof metric.value === 'number' ? metric.value : parseInt(metric.value as string) || 0}
-                    color={metric.color || '#0369A1'}
-                    delay={idx * 0.1}
-                  />
-                )
+                (metric, idx) => {
+                  // Convert string metrics to numbers, handling various formats
+                  let numValue = 0;
+                  if (typeof metric.value === 'number') {
+                    numValue = metric.value;
+                  } else {
+                    // Remove non-numeric characters except decimal point
+                    const cleaned = metric.value.replace(/[^\d.]/g, '');
+                    numValue = parseFloat(cleaned) || 0;
+                  }
+                  return (
+                    <StageDataCard
+                      key={idx}
+                      label={metric.label}
+                      value={numValue}
+                      color={metric.color || '#0369A1'}
+                      delay={idx * 0.1}
+                    />
+                  );
+                }
               )}
             </div>
           </motion.section>
@@ -247,6 +291,7 @@ export default function LifecyclePage() {
           </div>
           <LifecycleViewer />
         </motion.section>
+      </div>
       </div>
     </main>
   );

@@ -52,20 +52,33 @@ export const StageCard: React.FC<StageCardProps> = ({
       transition={{ duration: 0.5 }}
       viewport={{ once: true, margin: '-100px' }}
     >
-      <GlassPanel
-        variant={isActive ? 'elevated' : 'surface'}
-        className={clsx(
-          'p-6 md:p-8 cursor-pointer transition-all duration-300',
-          isActive && `border-l-4 shadow-lg`,
-        )}
-        style={
-          isActive ? {
-            borderLeftColor: color,
-            boxShadow: `0 0 20px ${color}33`,
-          } : {}
-        }
-        onClick={handleClick}
+      <div
+        tabIndex={0}
+        role="button"
+        aria-label={`Stage ${number}: ${title}`}
+        aria-expanded={isExpanded}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleClick();
+          }
+        }}
+        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0369A1] rounded-lg"
       >
+        <GlassPanel
+          variant={isActive ? 'elevated' : 'surface'}
+          className={clsx(
+            'p-6 md:p-8 cursor-pointer transition-all duration-300',
+            isActive && `border-l-4 shadow-lg`,
+          )}
+          style={
+            isActive ? {
+              borderLeftColor: color,
+              boxShadow: `0 0 20px ${color}33`,
+            } : {}
+          }
+          onClick={handleClick}
+        >
         {/* Header */}
         <div className="flex items-start gap-4 mb-4">
           {/* Number Circle */}
@@ -136,7 +149,8 @@ export const StageCard: React.FC<StageCardProps> = ({
             )}
           </div>
         </motion.div>
-      </GlassPanel>
+        </GlassPanel>
+      </div>
     </motion.div>
   );
 };

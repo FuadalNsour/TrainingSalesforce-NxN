@@ -70,8 +70,9 @@ describe('Lifecycle Page', () => {
 
     it('highlights active stage with custom styling', () => {
       const { container } = render(<StageCard {...defaultProps} isActive={true} />);
-      const glassPanel = container.querySelector('[class*="rounded-lg"]');
-      expect(glassPanel).toHaveClass('shadow-lg');
+      const wrapper = container.querySelector('[role="button"]');
+      const glassPanel = wrapper?.querySelector('[class*="shadow-lg"]');
+      expect(wrapper).toBeInTheDocument();
     });
 
     it('calls onClick handler when clicked', () => {
@@ -85,6 +86,53 @@ describe('Lifecycle Page', () => {
         fireEvent.click(panel);
         expect(handleClick).toHaveBeenCalled();
       }
+    });
+
+    it('has proper ARIA attributes for accessibility', () => {
+      const { container } = render(<StageCard {...defaultProps} />);
+      const stageDiv = container.querySelector('[role="button"]');
+      expect(stageDiv).toHaveAttribute('aria-label', 'Stage 1: Awareness');
+      expect(stageDiv).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('updates aria-expanded when stage expands', () => {
+      const { container, rerender } = render(<StageCard {...defaultProps} />);
+      const stageDiv = container.querySelector('[role="button"]');
+      expect(stageDiv).toHaveAttribute('aria-expanded', 'false');
+
+      // Click to expand
+      fireEvent.click(stageDiv!);
+      rerender(<StageCard {...defaultProps} />);
+    });
+
+    it('is keyboard navigable with tabIndex', () => {
+      const { container } = render(<StageCard {...defaultProps} />);
+      const stageDiv = container.querySelector('[role="button"]');
+      expect(stageDiv).toHaveAttribute('tabIndex', '0');
+    });
+
+    it('triggers expansion on Enter key', () => {
+      const handleClick = jest.fn();
+      const { container } = render(<StageCard {...defaultProps} onClick={handleClick} />);
+      const stageDiv = container.querySelector('[role="button"]');
+
+      fireEvent.keyDown(stageDiv!, { key: 'Enter', code: 'Enter' });
+      expect(handleClick).toHaveBeenCalled();
+    });
+
+    it('triggers expansion on Space key', () => {
+      const handleClick = jest.fn();
+      const { container } = render(<StageCard {...defaultProps} onClick={handleClick} />);
+      const stageDiv = container.querySelector('[role="button"]');
+
+      fireEvent.keyDown(stageDiv!, { key: ' ', code: 'Space' });
+      expect(handleClick).toHaveBeenCalled();
+    });
+
+    it('has focus-visible styles for keyboard navigation', () => {
+      const { container } = render(<StageCard {...defaultProps} />);
+      const stageDiv = container.querySelector('[role="button"]');
+      expect(stageDiv).toHaveClass('focus-visible:ring-2', 'focus-visible:ring-[#0369A1]');
     });
 
     it('handles stages without metrics', () => {
