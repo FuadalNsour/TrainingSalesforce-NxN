@@ -9,13 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          primary: '#0056FF',
+          secondary: '#32E396',
+          accent: '#EB861F',
+          dark: '#1F2937',
+          light: '#FAFBFC',
+          border: '#E5E7EB',
+        },
         glass: {
-          primary: '#0369A1',
-          accent: '#16A34A',
-          muted: '#64748B',
+          primary: '#0056FF',
+          accent: '#32E396',
+          muted: '#6B7280',
           border: '#BAE6FD',
-          bg: '#F0F9FF',
-          text: '#0F172A',
+          bg: '#FAFBFC',
+          text: '#1F2937',
         },
       },
       backdropBlur: {
@@ -34,11 +42,16 @@ const config: Config = {
       },
       boxShadow: {
         'glass': 'inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+        'card': '0 4px 12px rgba(0, 86, 255, 0.1)',
+        'card-hover': '0 12px 24px rgba(0, 86, 255, 0.15)',
       },
       fontFamily: {
-        'display': ['Poppins', 'sans-serif'],
-        'body': ['Open Sans', 'sans-serif'],
+        'display': ['Space Grotesk', 'sans-serif'],
+        'body': ['Cairo', 'sans-serif'],
         'mono': ['Space Grotesk', 'monospace'],
+      },
+      gradients: {
+        'vibrant': 'linear-gradient(135deg, #0056FF 0%, #32E396 100%)',
       },
     },
   },

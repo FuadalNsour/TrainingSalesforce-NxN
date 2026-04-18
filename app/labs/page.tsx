@@ -36,12 +36,11 @@ export default function LabsPage() {
       title: lab.title,
       description: lab.description,
       difficulty: lab.difficulty,
-      duration: 45, // Default duration since not in data
-      topics: [], // Default empty topics since not in data
-      rating: 4, // Default rating since not in data
+      duration: 45,
+      topics: [],
+      rating: 4,
       href: `/labs/${lab.id}`,
-      fullDescription:
-        lab.scenario?.context || lab.description,
+      fullDescription: lab.scenario?.context || lab.description,
       instructions: [
         lab.scenario?.situation || '',
         lab.scenario?.question || '',
@@ -58,14 +57,12 @@ export default function LabsPage() {
     }));
   }, []);
 
-  // Get unique difficulties and topics for filters
   const difficulties: FilterOption[] = [
     { id: 'beginner', label: 'Beginner', category: 'difficulty', count: allLabs.filter((l) => l.difficulty === 'beginner').length },
     { id: 'intermediate', label: 'Intermediate', category: 'difficulty', count: allLabs.filter((l) => l.difficulty === 'intermediate').length },
     { id: 'advanced', label: 'Advanced', category: 'difficulty', count: allLabs.filter((l) => l.difficulty === 'advanced').length },
   ];
 
-  // Get unique topics from all labs
   const allTopics = useMemo(() => {
     const topicSet = new Set<string>();
     allLabs.forEach((lab) => {
@@ -85,7 +82,6 @@ export default function LabsPage() {
 
   const filterOptions = [...difficulties, ...allTopics];
 
-  // Filter labs based on selected filters
   const filteredLabs = useMemo(() => {
     if (selectedFilters.length === 0) {
       return allLabs;
@@ -121,26 +117,30 @@ export default function LabsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F9FF] via-[#E0F2FE] to-[#F0FDF4]">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#FAFBFC] via-[#F0F4FF] to-[#FAFBFC]">
+      {/* Background gradient blobs */}
+      <div className="fixed inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-0 -right-40 w-80 h-80 bg-[#0056FF] rounded-full mix-blend-multiply filter blur-3xl" />
+        <div className="absolute bottom-0 -left-40 w-80 h-80 bg-[#32E396] rounded-full mix-blend-multiply filter blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
         {/* Header */}
         <motion.section
-          className="mb-12"
+          className="mb-16"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
         >
           <motion.div variants={revealContent} className="mb-6">
-            <GlassPanel variant="elevated" className="p-8 rounded-2xl">
-              <h1 className="text-5xl md:text-6xl font-bold text-[#0F172A] mb-4">
-                Interactive Labs
+            <div className="bg-gradient-to-r from-[#0056FF]/5 to-[#32E396]/5 border border-[#0056FF]/20 p-8 rounded-2xl backdrop-blur-sm">
+              <h1 className="text-5xl md:text-6xl font-bold text-[#1F2937] mb-4">
+                ⚡ Interactive Labs
               </h1>
-              <p className="text-lg text-[#64748B] max-w-2xl leading-relaxed">
-                Practice real-world scenarios and test your understanding with hands-on labs
-                that simulate actual commercial situations. Build confidence through practical
-                application of the NxN framework.
+              <p className="text-lg text-[#4B5563] max-w-3xl leading-relaxed">
+                Practice real-world scenarios and sharpen your skills with hands-on labs that simulate actual commercial situations. Build confidence through practical application of the NxN framework.
               </p>
-            </GlassPanel>
+            </div>
           </motion.div>
         </motion.section>
 
@@ -153,82 +153,80 @@ export default function LabsPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <GlassPanel variant="surface" className="p-6 rounded-xl sticky top-6">
-              <h2 className="text-lg font-semibold text-[#0F172A] mb-6">Filter Labs</h2>
+            <div className="bg-white/80 backdrop-blur-sm border border-[#E5E7EB] p-6 rounded-xl sticky top-6 shadow-sm">
+              <h2 className="text-lg font-bold text-[#1F2937] mb-6">🔍 Filter Labs</h2>
               <LabFilter
                 filters={filterOptions}
                 onFilterChange={setSelectedFilters}
               />
-            </GlassPanel>
+            </div>
           </motion.aside>
 
-          {/* Labs Grid */}
-          <motion.div
-            className="lg:col-span-3"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <div className="mb-6 flex items-center justify-between">
-              <p className="text-sm text-[#64748B] font-medium">
-                Showing {filteredLabs.length} of {allLabs.length} labs
-              </p>
-              {selectedFilters.length > 0 && (
-                <motion.button
-                  onClick={() => {
-                    setSelectedFilters([]);
-                  }}
-                  className="text-xs text-[#0369A1] hover:text-[#0369A1]/80 font-medium transition-colors"
-                  whileHover={{ x: 2 }}
-                >
-                  Reset filters
-                </motion.button>
-              )}
-            </div>
+        {/* Labs Grid */}
+        <motion.div
+          className="lg:col-span-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="mb-6 flex items-center justify-between">
+            <p className="text-sm font-bold text-[#0056FF]">
+              📊 Showing {filteredLabs.length} of {allLabs.length} labs
+            </p>
+            {selectedFilters.length > 0 && (
+              <motion.button
+                onClick={() => {
+                  setSelectedFilters([]);
+                }}
+                className="text-xs font-bold text-[#EB861F] hover:text-[#B85D0B] transition-colors"
+                whileHover={{ x: 2 }}
+              >
+                ✕ Reset filters
+              </motion.button>
+            )}
+          </div>
 
-            <LabGrid
-              labs={filteredLabs}
-              onCardClick={handleCardClick}
-              key={`grid-${selectedFilters.length}`}
-            />
-          </motion.div>
+          <LabGrid
+            labs={filteredLabs}
+            onCardClick={handleCardClick}
+            key={`grid-${selectedFilters.length}`}
+          />
+        </motion.div>
         </div>
 
         {/* Info Section */}
         <motion.section
-          className="mt-20 pt-12 border-t border-white/20"
+          className="mt-24 pt-16 border-t border-[#E5E7EB]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <GlassPanel variant="surface" className="p-8 rounded-xl">
-            <h2 className="text-3xl font-bold text-[#0F172A] mb-4">How Labs Work</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-              <div>
-                <div className="text-3xl font-bold text-[#0369A1] mb-3">1</div>
-                <h3 className="text-lg font-semibold text-[#0F172A] mb-2">Review Scenario</h3>
-                <p className="text-[#64748B]">
-                  Read the real-world scenario and understand the commercial situation you're
-                  facing.
+          <div className="bg-white/80 backdrop-blur-sm border border-[#E5E7EB] p-8 rounded-xl shadow-sm">
+            <h2 className="text-3xl font-bold text-[#1F2937] mb-4">📚 How Labs Work</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+              <motion.div whileHover={{ y: -4 }} className="p-6 rounded-lg bg-gradient-to-br from-[#0056FF]/10 to-[#0056FF]/5 border border-[#0056FF]/20">
+                <div className="text-4xl font-bold text-[#0056FF] mb-3">1</div>
+                <h3 className="text-lg font-bold text-[#1F2937] mb-2">Review Scenario</h3>
+                <p className="text-[#4B5563]">
+                  Read the real-world scenario and understand the commercial situation you're facing.
                 </p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#0369A1] mb-3">2</div>
-                <h3 className="text-lg font-semibold text-[#0F172A] mb-2">Think Through</h3>
-                <p className="text-[#64748B]">
+              </motion.div>
+              <motion.div whileHover={{ y: -4 }} className="p-6 rounded-lg bg-gradient-to-br from-[#32E396]/10 to-[#32E396]/5 border border-[#32E396]/20">
+                <div className="text-4xl font-bold text-[#32E396] mb-3">2</div>
+                <h3 className="text-lg font-bold text-[#1F2937] mb-2">Think Through</h3>
+                <p className="text-[#4B5563]">
                   Apply the NxN framework to think through how you'd approach this situation.
                 </p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#0369A1] mb-3">3</div>
-                <h3 className="text-lg font-semibold text-[#0F172A] mb-2">Get Feedback</h3>
-                <p className="text-[#64748B]">
-                  Receive expert feedback showing how experienced professionals would approach
-                  it.
+              </motion.div>
+              <motion.div whileHover={{ y: -4 }} className="p-6 rounded-lg bg-gradient-to-br from-[#EB861F]/10 to-[#EB861F]/5 border border-[#EB861F]/20">
+                <div className="text-4xl font-bold text-[#EB861F] mb-3">3</div>
+                <h3 className="text-lg font-bold text-[#1F2937] mb-2">Get Feedback</h3>
+                <p className="text-[#4B5563]">
+                  Receive expert feedback showing how experienced professionals would approach it.
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </GlassPanel>
+          </div>
         </motion.section>
       </div>
 

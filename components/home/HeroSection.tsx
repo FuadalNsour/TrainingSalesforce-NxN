@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { GlassPanel, GlassButton } from '@/components/glass';
 
 interface HeroSectionProps {
   title: string;
@@ -21,74 +20,57 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   tertiaryCta,
 }) => {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background gradient */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-[#F0F9FF] via-[#E0F2FE] to-[#F0FDF4] animate-gradient-shift"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        style={{
-          backgroundSize: '200% 200%',
-        }}
-      />
-
-      {/* Floating particles (gravity motion) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-[#0369A1] rounded-full opacity-10"
-            animate={{ y: ['0vh', '100vh'], x: [0, 100] }}
-            transition={{
-              duration: 8 + i,
-              delay: i * 0.5,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: '-10px',
-            }}
-          />
-        ))}
+    <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FAFBFC] via-[#F0F4FF] to-[#FAFBFC]">
+      {/* Bold gradient background */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-0 -left-40 w-80 h-80 bg-[#0056FF] rounded-full mix-blend-multiply filter blur-3xl" />
+        <div className="absolute top-0 -right-40 w-80 h-80 bg-[#32E396] rounded-full mix-blend-multiply filter blur-3xl" />
+        <div className="absolute -bottom-40 left-1/2 w-80 h-80 bg-[#EB861F] rounded-full mix-blend-multiply filter blur-3xl" />
       </div>
 
       {/* Content */}
       <motion.div
-        className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+        className="relative z-10 max-w-5xl mx-auto px-6 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        {/* Logo/Badge */}
+        {/* Badge */}
         <motion.div
           className="inline-block mb-6"
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <GlassPanel variant="elevated" className="px-6 py-2 text-sm font-semibold text-[#0369A1]">
-            NxN Commercial Training
-          </GlassPanel>
+          <div className="px-4 py-2 bg-[#0056FF]/10 border border-[#0056FF]/20 rounded-full text-sm font-bold text-[#0056FF] backdrop-blur-sm">
+            ✨ NxN Commercial Training
+          </div>
         </motion.div>
 
         {/* Title */}
         <motion.h1
-          className="text-5xl md:text-7xl font-bold text-[#0F172A] mb-6 leading-tight"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-5xl md:text-7xl font-bold text-[#1F2937] mb-6 leading-tight"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           {title}
         </motion.h1>
 
+        {/* Divider */}
+        <motion.div
+          className="w-20 h-1 bg-gradient-to-r from-[#0056FF] to-[#32E396] mx-auto mb-8 rounded-full"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        />
+
         {/* Description */}
         <motion.p
-          className="text-xl md:text-2xl text-[#64748B] mb-12 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-[#4B5563] mb-12 max-w-2xl mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
           {description}
         </motion.p>
@@ -98,25 +80,37 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
           <Link href={primaryCta.href}>
-            <GlassButton variant="primary" size="lg">
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: '0 12px 24px rgba(0, 86, 255, 0.3)' }}
+              whileTap={{ scale: 0.98 }}
+              className="px-8 py-4 bg-gradient-to-r from-[#0056FF] to-[#0040CC] text-white font-bold rounded-lg hover:shadow-lg transition-all"
+            >
               {primaryCta.label}
-            </GlassButton>
+            </motion.button>
           </Link>
           {secondaryCta && (
             <Link href={secondaryCta.href}>
-              <GlassButton variant="secondary" size="lg">
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 12px 24px rgba(50, 227, 150, 0.3)' }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-[#32E396]/20 text-[#0F8559] font-bold rounded-lg border-2 border-[#32E396] hover:bg-[#32E396]/30 transition-all"
+              >
                 {secondaryCta.label}
-              </GlassButton>
+              </motion.button>
             </Link>
           )}
           {tertiaryCta && (
             <Link href={tertiaryCta.href}>
-              <GlassButton variant="ghost" size="lg">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 text-[#0056FF] font-bold border-2 border-[#0056FF] rounded-lg hover:bg-[#0056FF]/10 transition-all"
+              >
                 {tertiaryCta.label}
-              </GlassButton>
+              </motion.button>
             </Link>
           )}
         </motion.div>
