@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { getLabById } from '@/lib/labs-data';
 import { LabScenario } from '@/components/labs/LabScenario';
 import { LabFeedback } from '@/components/labs/LabFeedback';
@@ -29,74 +30,137 @@ export default function LabDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <p className="text-gray-600">Loading lab...</p>
+      <div className="min-h-screen bg-gradient-to-br from-[#FAFBFC] via-[#F0F4FF] to-[#FAFBFC] flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block px-6 py-3 bg-[#0056FF]/10 border border-[#0056FF]/20 rounded-lg">
+            <p className="text-[#0056FF] font-bold">Loading lab...</p>
+          </div>
+        </div>
       </div>
     );
   }
 
   if (!lab) {
     return (
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <h1 className="text-3xl font-display font-bold text-gray-900 mb-4">Lab not found</h1>
-        <p className="text-gray-600 mb-6">The lab you're looking for doesn't exist.</p>
-        <Link href={ROUTES.labs}>
-          <Button variant="primary">Back to Labs</Button>
-        </Link>
+      <div className="min-h-screen bg-gradient-to-br from-[#FAFBFC] via-[#F0F4FF] to-[#FAFBFC] flex items-center justify-center">
+        <div className="max-w-lg text-center">
+          <h1 className="text-4xl font-bold text-[#1F2937] mb-4">Lab not found</h1>
+          <p className="text-[#4B5563] mb-8">The lab you're looking for doesn't exist.</p>
+          <Link href={ROUTES.labs}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-8 py-3 bg-gradient-to-r from-[#0056FF] to-[#0040CC] text-white font-bold rounded-lg hover:shadow-lg transition-all"
+            >
+              ← Back to Labs
+            </motion.button>
+          </Link>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
-      <Link href={ROUTES.labs} className="text-green-600 hover:text-green-700 mb-6 inline-block">
-        ← Back to Labs
-      </Link>
+    <div className="min-h-screen bg-gradient-to-br from-[#FAFBFC] via-[#F0F4FF] to-[#FAFBFC]">
+      {/* Background gradient blobs */}
+      <div className="fixed inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-0 -right-40 w-80 h-80 bg-[#0056FF] rounded-full mix-blend-multiply filter blur-3xl" />
+        <div className="absolute bottom-0 -left-40 w-80 h-80 bg-[#32E396] rounded-full mix-blend-multiply filter blur-3xl" />
+      </div>
 
-      {!submitted ? (
-        <>
-          <LabScenario lab={lab} />
-          <div className="mt-8">
-            <h3 className="font-bold text-gray-900 mb-4">Your Response</h3>
-            <textarea
-              className="w-full p-4 border border-gray-300 rounded text-gray-900 focus:outline-none focus:border-green-600"
-              rows={6}
-              placeholder="Write your answer here..."
-              value={userAnswer}
-              onChange={(e) => setUserAnswer(e.target.value)}
-            />
-            <Button
-              variant="primary"
-              size="lg"
-              className="mt-4"
-              onClick={() => setSubmitted(true)}
+      <div className="max-w-4xl mx-auto px-6 py-12 relative z-10">
+        {/* Back button */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link href={ROUTES.labs} className="text-[#0056FF] hover:text-[#0040CC] mb-8 inline-flex items-center font-bold transition-all">
+            ← Back to Labs
+          </Link>
+        </motion.div>
+
+        {!submitted ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <LabScenario lab={lab} />
+
+            {/* Response section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-12 bg-white/80 backdrop-blur-sm border-2 border-[#0056FF]/20 p-8 rounded-xl shadow-sm"
             >
-              Submit Response
-            </Button>
-          </div>
-        </>
-      ) : (
-        <>
-          <LabFeedback
-            correctAnswer={lab.correctAnswer}
-            bestAnswer={lab.bestAnswer}
-            explanation={lab.explanation}
-            keyLearnings={lab.keyLearnings}
-            userAnswer={userAnswer}
-            assessmentType={lab.assessmentType}
-            scoringRubric={lab.scoringRubric}
-          />
+              <div className="flex items-center mb-6">
+                <div className="text-3xl font-bold text-[#0056FF] mr-3">✍️</div>
+                <h3 className="text-2xl font-bold text-[#1F2937]">Your Response</h3>
+              </div>
 
-          <div className="mt-8 flex gap-4">
-            <Button variant="primary" onClick={() => window.location.reload()}>
-              Try Another Lab
-            </Button>
-            <Link href={ROUTES.labs}>
-              <Button variant="secondary">Back to Labs</Button>
-            </Link>
-          </div>
-        </>
-      )}
+              <textarea
+                className="w-full p-4 border-2 border-[#E5E7EB] rounded-lg text-[#1F2937] focus:outline-none focus:border-[#0056FF] focus:ring-2 focus:ring-[#0056FF]/20 resize-none"
+                rows={8}
+                placeholder="Write your answer here... Think through how you would approach this situation using the NxN framework."
+                value={userAnswer}
+                onChange={(e) => setUserAnswer(e.target.value)}
+              />
+
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 12px 24px rgba(0, 86, 255, 0.3)' }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setSubmitted(true)}
+                className="mt-6 px-8 py-4 bg-gradient-to-r from-[#0056FF] to-[#0040CC] text-white font-bold rounded-lg hover:shadow-lg transition-all"
+              >
+                ✓ Submit Response
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <LabFeedback
+              correctAnswer={lab.correctAnswer}
+              bestAnswer={lab.bestAnswer}
+              explanation={lab.explanation}
+              keyLearnings={lab.keyLearnings}
+              userAnswer={userAnswer}
+              assessmentType={lab.assessmentType}
+              scoringRubric={lab.scoringRubric}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-12 flex gap-4"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => window.location.reload()}
+                className="px-8 py-4 bg-gradient-to-r from-[#0056FF] to-[#0040CC] text-white font-bold rounded-lg hover:shadow-lg transition-all"
+              >
+                🔄 Try Another Lab
+              </motion.button>
+              <Link href={ROUTES.labs}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 bg-[#32E396]/20 text-[#0F8559] font-bold rounded-lg border-2 border-[#32E396] hover:bg-[#32E396]/30 transition-all"
+                >
+                  Back to Labs
+                </motion.button>
+              </Link>
+            </motion.div>
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 }
