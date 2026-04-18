@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { GlassPanel } from '@/components/glass/GlassPanel';
 import { LabFilter, type FilterOption } from '@/components/labs/LabFilter';
 import { LabGrid } from '@/components/labs/LabGrid';
-import { LabModal } from '@/components/labs/LabModal';
 import { LABS } from '@/lib/labs-data';
 import { staggerContainer, revealContent } from '@/lib/motion-presets';
 
@@ -26,8 +25,6 @@ interface LabData {
 
 export default function LabsPage() {
   const [selectedFilters, setSelectedFilters] = useState<FilterOption[]>([]);
-  const [selectedLab, setSelectedLab] = useState<LabData | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Transform LABS data to our format
   const allLabs: LabData[] = useMemo(() => {
@@ -106,15 +103,6 @@ export default function LabsPage() {
     });
   }, [allLabs, selectedFilters]);
 
-  const handleCardClick = (lab: LabData) => {
-    setSelectedLab(lab);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedLab(null);
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FAFBFC] via-[#F0F4FF] to-[#FAFBFC]">
@@ -188,7 +176,6 @@ export default function LabsPage() {
 
           <LabGrid
             labs={filteredLabs}
-            onCardClick={handleCardClick}
             key={`grid-${selectedFilters.length}`}
           />
         </motion.div>
@@ -229,13 +216,6 @@ export default function LabsPage() {
           </div>
         </motion.section>
       </div>
-
-      {/* Lab Details Modal */}
-      <LabModal
-        isOpen={isModalOpen}
-        lab={selectedLab}
-        onClose={handleCloseModal}
-      />
     </div>
   );
 }
