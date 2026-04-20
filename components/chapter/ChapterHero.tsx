@@ -119,12 +119,9 @@ export const ChapterHero: React.FC<ChapterHeroProps> = ({ chapter }) => {
             className="flex flex-col sm:flex-row gap-4 pt-6"
             variants={revealContent}
           >
-            <GlassButton variant="primary" size="lg" className="w-full sm:w-auto">
-              Start Chapter
-            </GlassButton>
-            <Link href="/chapters" className="w-full sm:w-auto">
+            <Link href="/" className="w-full sm:w-auto">
               <GlassButton variant="secondary" size="lg" className="w-full">
-                Back to Chapters
+                ← Back to Home
               </GlassButton>
             </Link>
           </motion.div>
