@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { LifecycleViewer } from '@/components/lifecycle/LifecycleViewer';
 import { StageCard } from '@/components/lifecycle/StageCard';
-import { StageDataCard } from '@/components/lifecycle/StageDataCard';
 import { staggerContainer } from '@/lib/motion-presets';
 
 // NxN Buyer Journey Stages
@@ -175,41 +174,6 @@ export default function LifecyclePage() {
             ))}
           </div>
         </motion.section>
-
-        {/* Section: Stage Metrics Dashboard */}
-        {expandedStage && (
-          <motion.section
-            className="mb-20"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -40 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-2">
-                Stage Metrics
-              </h2>
-              <p className="text-[#64748B] text-base md:text-lg">
-                Key performance indicators for the {LIFECYCLE_STAGES.find((s) => s.id === expandedStage)?.title} stage
-              </p>
-            </div>
-
-            {/* Metrics Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {LIFECYCLE_STAGES.find((s) => s.id === expandedStage)?.metrics.map(
-                (metric, idx) => (
-                  <StageDataCard
-                    key={idx}
-                    label={metric.label}
-                    value={typeof metric.value === 'number' ? metric.value : parseInt(metric.value as string) || 0}
-                    color={metric.color || '#0369A1'}
-                    delay={idx * 0.1}
-                  />
-                )
-              )}
-            </div>
-          </motion.section>
-        )}
 
         {/* Legacy LifecycleViewer - Optional */}
         <motion.section
