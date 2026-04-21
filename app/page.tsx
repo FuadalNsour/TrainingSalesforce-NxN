@@ -6,14 +6,40 @@ import { loadCourseMetadata } from '@/lib/content-loader';
 export default async function Home() {
   const courseMetadata = await loadCourseMetadata();
 
+  // Lab count per chapter
+  const labsPerChapter: Record<string, number> = {
+    '01-why-matters': 3,
+    '02-customer-journey': 2,
+    '03-roles': 2,
+    '04-lead-management': 3,
+    '05-conversion-hierarchy': 2,
+    '06-account-lifecycle': 2,
+    '07-opportunity-management': 2,
+    '08-stage-gates': 2,
+    '09-quote-management': 2,
+    '10-contract-management': 2,
+    '11-data-quality': 2,
+    '12-reporting': 2,
+    '13-full-cycle-simulation': 2,
+    '14-common-mistakes': 3,
+  };
+
   // Transform metadata into Chapter format for LearningPathSection
-  const chapters = courseMetadata.chapters.map((ch, index) => ({
-    id: ch.id,
-    title: ch.title,
-    description: `Learn about ${ch.title.toLowerCase()}`,
-    duration: ch.duration ? Math.ceil(ch.duration / 60) : 1,
-    difficulty: (['beginner', 'intermediate', 'advanced'] as const)[index % 3],
-  }));
+  const chapters = courseMetadata.chapters.map((ch, index) => {
+    const chapterMinutes = ch.duration || 0;
+    const labsCount = labsPerChapter[ch.id] || 0;
+    const labMinutes = labsCount * 15; // 15 min per lab
+    const totalMinutes = chapterMinutes + labMinutes;
+    const durationInHours = Math.ceil(totalMinutes / 60);
+
+    return {
+      id: ch.id,
+      title: ch.title,
+      description: `Learn about ${ch.title.toLowerCase()}`,
+      duration: durationInHours,
+      difficulty: (['beginner', 'intermediate', 'advanced'] as const)[index % 3],
+    };
+  });
 
   return (
     <main className="w-full">
@@ -28,7 +54,7 @@ export default async function Home() {
       <LearningPathSection chapters={chapters} />
       <CourseInfoSection
         totalChapters={courseMetadata.chapters.length}
-        totalHours={Math.ceil(courseMetadata.duration / 60)}
+        totalHours={chapters.reduce((sum, ch) => sum + ch.duration, 0)}
       />
     </main>
   );
