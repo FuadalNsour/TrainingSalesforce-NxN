@@ -30,21 +30,31 @@ export default function LabDetailPage() {
 
   const handleSubmit = async () => {
     try {
+      const payload = {
+        labId,
+        labTitle: lab.title || `Lab ${labId}`,
+        context: lab.scenario?.context || '',
+        situation: lab.scenario?.situation || '',
+        question: lab.scenario?.question || '',
+        userResponse: userAnswer,
+      };
+
+      console.log('Submitting lab response:', payload);
+
       const response = await fetch('/api/labs/save-response', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          labId,
-          labTitle: lab.title || `Lab ${labId}`,
-          context: lab.scenario?.context || '',
-          situation: lab.scenario?.situation || '',
-          question: lab.scenario?.question || '',
-          userResponse: userAnswer,
-        }),
+        body: JSON.stringify(payload),
       });
 
+      const data = await response.json();
+      console.log('Save response status:', response.status);
+      console.log('Save response data:', data);
+
       if (!response.ok) {
-        console.error('Failed to save response');
+        console.error('Failed to save response:', data);
+      } else {
+        console.log('Response saved successfully');
       }
     } catch (error) {
       console.error('Error saving response:', error);
