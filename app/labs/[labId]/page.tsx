@@ -47,14 +47,20 @@ export default function LabDetailPage() {
         body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-      console.log('Save response status:', response.status);
-      console.log('Save response data:', data);
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        data = await response.text();
+      }
+
+      console.log('API Response Status:', response.status);
+      console.log('API Response Body:', data);
 
       if (!response.ok) {
-        console.error('Failed to save response:', data);
+        console.error('❌ API FAILED - Status:', response.status, 'Error:', data);
       } else {
-        console.log('Response saved successfully');
+        console.log('✅ Response saved successfully:', data);
       }
     } catch (error) {
       console.error('Error saving response:', error);
