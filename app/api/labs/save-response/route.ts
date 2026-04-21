@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = saveLabResponse({
+    const response = await saveLabResponse({
       labId,
       labTitle: labTitle || 'Unknown Lab',
       context: context || '',
@@ -24,10 +24,11 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ success: true, response });
-  } catch (error) {
-    console.error('Error saving response:', error);
+  } catch (error: any) {
+    const errorMessage = error?.message || String(error);
+    console.error('Error saving response:', errorMessage, error);
     return NextResponse.json(
-      { error: 'Failed to save response' },
+      { error: 'Failed to save response', details: errorMessage },
       { status: 500 }
     );
   }

@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+import { getStore } from '@netlify/blobs';
 
 export interface LabResponse {
   id: string;
@@ -12,22 +11,19 @@ export interface LabResponse {
   timestamp: string;
 }
 
-const RESPONSES_FILE = path.join(process.cwd(), 'data', 'lab_responses.json');
+const RESPONSES_KEY = 'lab_responses.json';
 
-function ensureResponsesFile() {
-  const dir = path.dirname(RESPONSES_FILE);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  if (!fs.existsSync(RESPONSES_FILE)) {
-    fs.writeFileSync(RESPONSES_FILE, JSON.stringify([], null, 2));
-  }
-}
-
-export function saveLabResponse(response: Omit<LabResponse, 'id' | 'timestamp'>) {
+export async function saveLabResponse(response: Omit<LabResponse, 'id' | 'timestamp'>) {
   try {
-    ensureResponsesFile();
-    const responses: LabResponse[] = JSON.parse(fs.readFileSync(RESPONSES_FILE, 'utf-8'));
+    const store = getStore('lab-responses');
+
+    const existingData = await store.get(RESPONSES_KEY);
+    let responses: LabResponse[] = [];
+
+    if (existingData) {
+      const text = new TextDecoder().decode(existingData);
+      responses = JSON.parse(text);
+    }
 
     const newResponse: LabResponse = {
       ...response,
@@ -36,7 +32,7 @@ export function saveLabResponse(response: Omit<LabResponse, 'id' | 'timestamp'>)
     };
 
     responses.push(newResponse);
-    fs.writeFileSync(RESPONSES_FILE, JSON.stringify(responses, null, 2));
+    await store.set(RESPONSES_KEY, JSON.stringify(responses, null, 2));
 
     return newResponse;
   } catch (error) {
@@ -45,11 +41,17 @@ export function saveLabResponse(response: Omit<LabResponse, 'id' | 'timestamp'>)
   }
 }
 
-export function getAllResponses(): LabResponse[] {
+export async function getAllResponses(): Promise<LabResponse[]> {
   try {
-    ensureResponsesFile();
-    const data = fs.readFileSync(RESPONSES_FILE, 'utf-8');
-    return JSON.parse(data);
+    const store = getStore('lab-responses');
+    const data = await store.get(RESPONSES_KEY);
+
+    if (!data) {
+      return [];
+    }
+
+    const text = new TextDecoder().decode(data);
+    return JSON.parse(text);
   } catch (error) {
     console.error('Error reading lab responses:', error);
     return [];

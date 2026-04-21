@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   }
 
   // Get all user responses
-  const responses = getAllResponses();
+  const responses = await getAllResponses();
 
   // Create workbook with multiple sheets
   const workbook = new ExcelJS.Workbook();
