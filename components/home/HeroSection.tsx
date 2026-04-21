@@ -10,6 +10,7 @@ interface HeroSectionProps {
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   tertiaryCta?: { label: string; href: string };
+  quaternaryCta?: { label: string; href: string };
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
@@ -18,6 +19,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   primaryCta,
   secondaryCta,
   tertiaryCta,
+  quaternaryCta,
 }) => {
   return (
     <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FAFBFC] via-[#F0F4FF] to-[#FAFBFC]">
@@ -110,6 +112,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="px-8 py-4 text-[#0056FF] font-bold border-2 border-[#0056FF] rounded-lg hover:bg-[#0056FF]/10 transition-all"
               >
                 {tertiaryCta.label}
+              </motion.button>
+            </Link>
+          )}
+          {quaternaryCta && (
+            <Link href={quaternaryCta.href}>
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 12px 24px rgba(235, 134, 31, 0.3)' }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-[#EB861F]/20 text-[#B85D0B] font-bold rounded-lg border-2 border-[#EB861F] hover:bg-[#EB861F]/30 transition-all"
+              >
+                {quaternaryCta.label}
               </motion.button>
             </Link>
           )}

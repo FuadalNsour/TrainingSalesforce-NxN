@@ -23,6 +23,7 @@ export default async function Home() {
         primaryCta={{ label: 'Start Learning', href: '/chapters/01-why-matters' }}
         secondaryCta={{ label: 'Explore Labs', href: '/labs' }}
         tertiaryCta={{ label: 'View Timeline', href: '/lifecycle' }}
+        quaternaryCta={{ label: 'Training Materials', href: '/training' }}
       />
       <LearningPathSection chapters={chapters} />
       <CourseInfoSection
