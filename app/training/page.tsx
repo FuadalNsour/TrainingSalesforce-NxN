@@ -39,7 +39,7 @@ export default function TrainingPage() {
       type: 'pptx',
       icon: '📊',
       href: '/training/view-pptx',
-      pages: '50+',
+      pages: '11',
     },
   ];
 
