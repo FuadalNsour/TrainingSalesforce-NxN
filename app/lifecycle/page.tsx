@@ -5,8 +5,6 @@ import { motion } from 'framer-motion';
 import { LifecycleViewer } from '@/components/lifecycle/LifecycleViewer';
 import { StageCard } from '@/components/lifecycle/StageCard';
 import { StageDataCard } from '@/components/lifecycle/StageDataCard';
-import { ProcessTimeline } from '@/components/glass/ProcessTimeline';
-import { GlassPanel } from '@/components/glass/GlassPanel';
 import { staggerContainer } from '@/lib/motion-presets';
 
 // NxN Buyer Journey Stages
@@ -88,13 +86,6 @@ const LIFECYCLE_STAGES = [
   },
 ];
 
-// Timeline stages for ProcessTimeline component
-const TIMELINE_STAGES = LIFECYCLE_STAGES.map((stage) => ({
-  id: stage.id,
-  label: stage.title,
-  description: stage.description,
-}));
-
 export default function LifecyclePage() {
   const [expandedStage, setExpandedStage] = useState<string | null>(null);
   const [currentStage, setCurrentStage] = useState(0);
@@ -146,15 +137,6 @@ export default function LifecyclePage() {
             </p>
           </div>
 
-          {/* Vertical ProcessTimeline */}
-          <div className="mb-12 p-8 bg-white/40 rounded-xl border border-white/20 backdrop-blur-sm">
-            <ProcessTimeline
-              stages={TIMELINE_STAGES}
-              currentStage={currentStage}
-              onStageClick={handleStageClick}
-              vertical={true}
-            />
-          </div>
         </motion.section>
 
         {/* Section: Interactive Stage Cards */}
