@@ -28,6 +28,31 @@ export default function LabDetailPage() {
   const [userAnswer, setUserAnswer] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('/api/labs/save-response', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          labId,
+          labTitle: lab.title || `Lab ${labId}`,
+          context: lab.scenario?.context || '',
+          situation: lab.scenario?.situation || '',
+          question: lab.scenario?.question || '',
+          userResponse: userAnswer,
+        }),
+      });
+
+      if (!response.ok) {
+        console.error('Failed to save response');
+      }
+    } catch (error) {
+      console.error('Error saving response:', error);
+    } finally {
+      setSubmitted(true);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#FAFBFC] via-[#F0F4FF] to-[#FAFBFC] flex items-center justify-center">
@@ -111,7 +136,7 @@ export default function LabDetailPage() {
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: '0 12px 24px rgba(0, 86, 255, 0.3)' }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setSubmitted(true)}
+                onClick={handleSubmit}
                 className="mt-6 px-8 py-4 bg-gradient-to-r from-[#0056FF] to-[#0040CC] text-white font-bold rounded-lg hover:shadow-lg transition-all"
               >
                 ✓ Submit Response
