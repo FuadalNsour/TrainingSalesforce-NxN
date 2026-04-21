@@ -11,7 +11,7 @@ export default function TrainingPage() {
       description: 'Learn how to manage and work with accounts in Salesforce',
       type: 'video',
       icon: '🎬',
-      file: '/videos/Account.mp4',
+      href: '/training/watch/account',
       duration: '12 min',
     },
     {
@@ -20,7 +20,7 @@ export default function TrainingPage() {
       description: 'Master the lead management process in Salesforce',
       type: 'video',
       icon: '🎬',
-      file: '/videos/Lead.mp4',
+      href: '/training/watch/lead',
       duration: '15 min',
     },
     {
@@ -29,7 +29,7 @@ export default function TrainingPage() {
       description: 'Understand how to manage opportunities and sales pipelines',
       type: 'video',
       icon: '🎬',
-      file: '/videos/Opp.mov',
+      href: '/training/watch/opportunity',
       duration: '18 min',
     },
     {
@@ -38,7 +38,7 @@ export default function TrainingPage() {
       description: 'Complete training presentation covering all NxN commercial processes',
       type: 'pptx',
       icon: '📊',
-      file: '/training-materials/NxN Commercial Training Material.pptx',
+      href: '/training/view-pptx',
       pages: '50+',
     },
   ];
@@ -105,10 +105,8 @@ export default function TrainingPage() {
               variants={itemVariants}
               whileHover={{ y: -8 }}
             >
-              <a
-                href={material.file}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={material.href}
                 className="block h-full"
               >
                 <motion.div
@@ -143,11 +141,11 @@ export default function TrainingPage() {
                       className="text-[#0056FF] font-bold text-sm"
                       whileHover={{ x: 4 }}
                     >
-                      {material.type === 'video' ? 'Watch →' : 'Download →'}
+                      {material.type === 'video' ? 'Watch →' : 'View →'}
                     </motion.div>
                   </div>
                 </motion.div>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
