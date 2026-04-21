@@ -30,13 +30,13 @@ export default async function Home() {
     const labsCount = labsPerChapter[ch.id] || 0;
     const labMinutes = labsCount * 15; // 15 min per lab
     const totalMinutes = chapterMinutes + labMinutes;
-    const durationInHours = Math.ceil(totalMinutes / 60);
+    const durationInHours = totalMinutes / 60; // Don't round per chapter
 
     return {
       id: ch.id,
       title: ch.title,
       description: `Learn about ${ch.title.toLowerCase()}`,
-      duration: durationInHours,
+      duration: Math.round(durationInHours * 10) / 10, // Round to 1 decimal
       difficulty: (['beginner', 'intermediate', 'advanced'] as const)[index % 3],
     };
   });
