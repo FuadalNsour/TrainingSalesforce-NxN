@@ -71,7 +71,7 @@ export const CourseInfoSection: React.FC<CourseInfoSectionProps> = ({
                 <div className={`text-6xl font-bold ${stat.color} mb-2`}>
                   {stat.isCounter ? (
                     <AnimatedCounter
-                      target={stat.value as number}
+                      target={Math.round((stat.value as number) * 10) / 10}
                       duration={2}
                       prefix=""
                       suffix=""
