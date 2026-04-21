@@ -12,7 +12,7 @@ export default function TrainingPage() {
       type: 'video',
       icon: '🎬',
       href: '/training/watch/account',
-      duration: '12 min',
+      duration: '1 min',
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export default function TrainingPage() {
       type: 'video',
       icon: '🎬',
       href: '/training/watch/lead',
-      duration: '15 min',
+      duration: '2 min',
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function TrainingPage() {
       type: 'video',
       icon: '🎬',
       href: '/training/watch/opportunity',
-      duration: '18 min',
+      duration: '4 min',
     },
     {
       id: 4,
