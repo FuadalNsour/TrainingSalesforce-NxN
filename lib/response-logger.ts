@@ -40,7 +40,9 @@ async function getResponses(): Promise<LabResponse[]> {
 async function saveResponses(responses: LabResponse[]): Promise<void> {
   try {
     const store = getStore('lab-responses');
-    await store.set(RESPONSES_KEY, JSON.stringify(responses, null, 2));
+    const jsonString = JSON.stringify(responses, null, 2);
+    const encoded = new TextEncoder().encode(jsonString);
+    await store.set(RESPONSES_KEY, encoded as any);
   } catch (error) {
     console.error('Error writing to Blobs:', error);
     throw error;
