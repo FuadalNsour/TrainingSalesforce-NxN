@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import ExcelJS from 'exceljs';
+import { getAllResponses } from '@/lib/response-logger';
 
 export async function GET(request: NextRequest) {
   // Check password
@@ -10,45 +11,44 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid password' }, { status: 401 });
   }
 
-  // Import labs data
-  const labsModule = await import('@/lib/labs-data');
-  const labs = Object.values(labsModule.LABS);
+  // Get all user responses
+  const responses = getAllResponses();
 
-  // Create workbook
+  // Create workbook with multiple sheets
   const workbook = new ExcelJS.Workbook();
-  const worksheet = workbook.addWorksheet('Lab Responses');
 
-  // Set columns
-  worksheet.columns = [
-    { header: 'Lab ID', key: 'id', width: 15 },
-    { header: 'Lab Title', key: 'title', width: 30 },
-    { header: 'Context', key: 'context', width: 40 },
-    { header: 'Situation', key: 'situation', width: 40 },
-    { header: 'Question', key: 'question', width: 40 },
-    { header: 'Correct Answer', key: 'answer', width: 50 },
-    { header: 'Best Practice', key: 'best', width: 50 },
+  // Sheet 1: User Responses
+  const responseSheet = workbook.addWorksheet('User Responses');
+  responseSheet.columns = [
+    { header: 'Lab ID', key: 'labId', width: 15 },
+    { header: 'Lab Title', key: 'labTitle', width: 25 },
+    { header: 'Context', key: 'context', width: 35 },
+    { header: 'Situation', key: 'situation', width: 35 },
+    { header: 'Question', key: 'question', width: 35 },
+    { header: 'User Response', key: 'userResponse', width: 45 },
+    { header: 'Timestamp', key: 'timestamp', width: 20 },
   ];
 
   // Style header row
-  worksheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
-  worksheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0056FF' } };
-  worksheet.getRow(1).alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+  responseSheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
+  responseSheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0056FF' } };
+  responseSheet.getRow(1).alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
 
-  // Add data rows
-  labs.forEach((lab: any) => {
-    worksheet.addRow({
-      id: lab.id,
-      title: lab.title,
-      context: lab.scenario.context,
-      situation: lab.scenario.situation,
-      question: lab.scenario.question,
-      answer: lab.correctAnswer,
-      best: lab.bestAnswer || 'N/A',
+  // Add response data
+  responses.forEach((response) => {
+    responseSheet.addRow({
+      labId: response.labId,
+      labTitle: response.labTitle,
+      context: response.context,
+      situation: response.situation,
+      question: response.question,
+      userResponse: response.userResponse,
+      timestamp: new Date(response.timestamp).toLocaleString(),
     });
   });
 
   // Set row heights
-  worksheet.eachRow((row, rowNumber) => {
+  responseSheet.eachRow((row, rowNumber) => {
     if (rowNumber === 1) {
       row.height = 40;
     } else {
@@ -56,6 +56,30 @@ export async function GET(request: NextRequest) {
     }
     row.alignment = { wrapText: true, vertical: 'top' };
   });
+
+  // Sheet 2: Summary Statistics
+  const summarySheet = workbook.addWorksheet('Summary');
+  summarySheet.columns = [
+    { header: 'Metric', key: 'metric', width: 30 },
+    { header: 'Value', key: 'value', width: 20 },
+  ];
+
+  const uniqueLabs = [...new Set(responses.map((r) => r.labId))].length;
+  const totalResponses = responses.length;
+  const dateRange =
+    responses.length > 0
+      ? `${new Date(responses[0].timestamp).toLocaleDateString()} - ${new Date(responses[responses.length - 1].timestamp).toLocaleDateString()}`
+      : 'N/A';
+
+  summarySheet.addRows([
+    { metric: 'Total Responses', value: totalResponses },
+    { metric: 'Unique Labs Attempted', value: uniqueLabs },
+    { metric: 'Date Range', value: dateRange },
+    { metric: 'Export Date', value: new Date().toLocaleString() },
+  ]);
+
+  summarySheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
+  summarySheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0056FF' } };
 
   // Generate buffer
   const buffer = await workbook.xlsx.writeBuffer();
