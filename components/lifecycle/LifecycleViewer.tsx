@@ -22,12 +22,23 @@ export const LifecycleViewer: React.FC = () => {
   const selectedStage = stages.find(s => s.id === selectedStageId);
   const selectedIndex = stages.findIndex(s => s.id === selectedStageId);
 
+  const handleStageClick = (stageId: string) => {
+    setSelectedStageId(stageId);
+    // Scroll to "The Complete Journey" heading
+    setTimeout(() => {
+      const element = document.getElementById('complete-journey');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 0);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Visual Flow Timeline */}
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-8">
-          <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-8">The Complete Journey</h2>
+          <h2 id="complete-journey" className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-8">The Complete Journey</h2>
 
           {/* Responsive Timeline Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -35,7 +46,7 @@ export const LifecycleViewer: React.FC = () => {
               <div key={stage.id} className="flex flex-col items-center gap-2">
                 {/* Stage Button */}
                 <button
-                  onClick={() => setSelectedStageId(stage.id)}
+                  onClick={() => handleStageClick(stage.id)}
                   className={`relative group transition-all duration-300 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm flex-shrink-0 ${
                     selectedStageId === stage.id
                       ? 'bg-accent text-black shadow-lg scale-110'
